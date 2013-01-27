@@ -1,0 +1,75 @@
+% !TeX encoding = latin1
+%
+% [ Tiedostossa käytetty merkistö on ISO 8859-1 eli Latin 1. Ylläoleva rivi ]
+% [ tarvitaan, jos käyttää MiKTeX-paketin mukana tulevaa TeXworks-editoria. ]
+%
+% TIETOTEKNIIKAN KANDIDAATINTUTKIELMA
+%
+% Yksinkertainen LaTeX2e-mallipohja kandidaatintutkielmalle.
+% Käyttää Antti-Juhani Kaijanahon ja Matthieu Weberin kirjoittamaa
+% gradu2-dokumenttiluokkaa.
+%
+% Laatinut Timo Männikkö
+%
+% Jos kirjoitat pro gradu -tutkielmaa, tee mallipohjaan seuraavat muutokset:
+%  - Poista dokumenttiluokasta optio shortthesis .
+%  - Poista makro \tyyppi .
+%  - Lisää suuntautumisvaihtoehto makrolla \linja .
+%  - Kirjoita ylimmän tason otsikot makrolla \chapter, toisen tason otsikot
+%    makrolla \section ja mahdolliset kolmannen tason otsikot makrolla
+%    \subsection .
+%
+% Halutessasi voit tehdä myös kandidaatintutkielman "pro gradu -tyylillä":
+%  - Poista shortthesis-optio.
+%  - Kirjoita otsikot makroilla \chapter , \section (ja \subsection ).
+
+\documentclass[finnish,nonumbib,nocopyright]{gradu2}
+
+\usepackage{palatino} % valitaan oletusfonttia hieman tyylikkäämpi fontti
+
+\usepackage[dvips]{graphicx} % tarvitaan vain, jos halutaan mukaan kuvia
+
+\title{BDD ohjelmistokehityksen tukena mobiiliohjelmistojen kehityksessä}
+\translatedtitle{Using BDD to support software development on mobile platforms}
+
+\setauthor{Samppa}{Hynninen}
+\yhteystiedot{samppa.hynninen@jyu.fi}
+
+\setdate{27}{01}{2013}
+
+\tiivistelma{Tähän tulee tutkielman tiivistelmä.}
+\abstract{Here comes the abstract of the thesis.}
+
+\avainsanat{bdd, behariour-driven development, mobiilialustat}    % korvaa nämä oikeilla
+\keywords{bdd, behariour-driven development, mobile platforms} % avainsanoilla
+
+\linja{Ohjelmisto- ja tietoliikennetekniikka}
+
+\begin{document}
+
+\mainmatter
+
+\chapter{Johdanto}
+
+Johdanto tähän
+
+\chapter{Ketterä ohjelmistokehitys}
+
+Täällä sitten käsitellään x ja y
+
+\chapter{}
+
+\chapter{Yhteenveto}
+
+Yhteenveto tähän
+
+\begin{thebibliography}{9} % numero aaltosuluissa kertoo, miten paljon
+                           % varataan tilaa viitenumerolle
+
+\bibitem{cucumberbook}
+Matt Wayne ja Aslak Hellesøy, \textit{The Cucumber Book, Behaviour-Driven Development for Testers and Developers},
+Pragmatic Programmers LLC, 2012.
+
+\end{thebibliography}
+
+\end{document}
