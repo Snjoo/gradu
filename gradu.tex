@@ -25,7 +25,7 @@
 \setauthor{Samppa}{Hynninen}
 \yhteystiedot{samppa.hynninen@jyu.fi}
 
-\setdate{12}{02}{2013}
+\setdate{19}{02}{2013}
 
 \tiivistelma{Tähän tulee tutkielman tiivistelmä.}
 \abstract{Here comes the abstract of the thesis.}
@@ -41,7 +41,11 @@
 
 \chapter{Johdanto}
 
-Johdanto tähän
+Lähivuosina erilaisten mobiilipäätteiden osuus kuluttajien käyttämistä laitteista on kasvanut räjähdysmäisesti. Perinteisten pöytätietokoneiden, kannettavien tietokoneiden ja matkapuhelinten väliin on syntynyt täysin uusia laiteryhmiä, kuten esimerkiksi tablet-tietokoneet. Ohjelmistoteollisuus on joutunut muuntautumaan uusiin vaatimuksiin, jotka uudenlaiset sovellusalustat ovat tuoneet mukanaan. Palvelujen tulee nykyään monesti olla käytettävissä useilla eri alustoilla ja erilaisia alustoja voivat koskea erilaiset vaatimukset. Ohjelmistokehitysmenetelmiä on jouduttu kehittämään jatkuvasti muuttuvan ympäristön ja uusien tarpeiden myötä. Behaviour-driven development, eli käyttäytymislähtöinen kehitys on yksi viime vuosina kehittyneistä ohjelmistokehitystä tukevista tekniikoista, jossa kehityksen lähtökohtana ovat määrittelyt siitä, kuinka ohjelmiston tulisi toimia ja käyttäytyä.
+
+Ohjelmistotestauksen ollessa kriittinen osa ohjelmistotuotantoprosessia ja erityisesti laadunvarmistusta, sen merkitys korostuu entisestään, kun ohjelmistoja toimitetaan useille eri alustoille. Tässä tutkielmassa käsitellään behaviour-driven developmentia ja sen taustoja niin menetelmällisestä kuin puhtaasti teknologisesta näkökulmasta. Aluksi selvitetään mitä BDD:llä tarkoitetaan ja mistä se on kehittynyt. Taustojen ja historian ohella katselmoidaan ohjelmistokehityksen haasteita ja ongelmakohtia, joita BDD:n avulla pyritään välttämään. Teknologioiden osalta käsitellään erityisesti BDD-testaamista mobiiliohjelmistojen kehityksessä ja sen poikkeavuuksia sekä erityispiirteitä verrattuna BDD-menetelmiin muissa ympäristöissä. Tässä yhteydessä tarkastellaan erikseen eri mobiilialustojen natiivisovelluksia sekä uusiin HTML5-teknologioihin pohjautuvia alustariippumattomia sovelluksia, sillä niiden testaaminen eroaa merkittävästi toisistaan. 
+
+Tämän pro gradu -tutkielman tavoitteena on kartoittaa behaviour-driven developmentin tarjoamia mahdollisuuksia helpottaa mobiiliohjelmistojen kehitystä ja erityisesti testausta. Tarkoituksena on selvittää millaisia BDD-testikehyksiä merkittävimmille mobiilialustoille on tällä hetkellä olemassa ja miten eri mobiilialustojen testikehykset poikkeavat toisistaan. Tämä lisäksi tarkoituksena on selvittää, millaisia liiketoiminnallisia etuja BDD:llä voidaan mobiilisovelluskehityksessä saavuttaa. Tutkielma toteutetaan käyttäen konstruktiivista tutkimusotetta ja siinä pyritään lopputuloksena toteuttamaan ympäristö, jossa samaa sovellusta voitaisiin testataan eri mobiilialustoilla yhdellä testikokoelmalla. Testiympäristön toteutuksen yhteydessä tutkitaan millaisia puutteita nykyratkaisuissa on ja miten niitä voitaisiin kehittää, jotta yhden testikokoelman mallia voitaisiin käyttää.
 
 \chapter{Ketterä ohjelmistokehitys}
 
@@ -49,7 +53,13 @@ Johdanto tähän
 
 \section{TDD}
 
-\section{ATDD ja BDD}
+\section{ATDD}
+
+\chapter{Behaviour-driven development}
+
+\section{BDD:n lähtökohdat ohjelmistokehitystä tukevana menetelmänä}
+
+\section{Teknologioista}
 
 \chapter{BDD:n tarjoamat liiketoiminnalliset edut}
 
@@ -99,6 +109,10 @@ Dan North, \textit{Introducing BDD}, 2006, saatavilla WWW-muodossa
 \bibitem{specification}
 Gojko Adzic, \textit{Specification by Example},
 Manning Publications Co, 2011.
+
+\bibitem{bridging}
+Gojko Adzic, \textit{Bridgind the Communication Gap, Specification by Example and Agile Acceptance Testing},
+Neuri Limited, 2009.
 
 \bibitem{state}
 Susan Hammond ja David Umphress, \textit{Test driven development: the state of the practice},
