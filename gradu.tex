@@ -17,7 +17,8 @@
 
 \usepackage{palatino} % valitaan oletusfonttia hieman tyylikkäämpi fontti
 
-\usepackage[dvips]{graphicx} % tarvitaan vain, jos halutaan mukaan kuvia
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
 
 \title{BDD mobiiliohjelmistojen kehityksen tukena}
 \translatedtitle{Using BDD to support software development on mobile platforms}
@@ -51,7 +52,27 @@ Tämän pro gradu -tutkielman tavoitteena on kartoittaa behaviour-driven developme
 
 \section{Taustaa ja ketterien menetelmien kehitys}
 
+\subsection{Vesiputousmalli}
+
+Yksi varhaisista ohjelmistokehityksen malleista on inkrementaalinen vesiputousmalli, jonka perustana toimii hyvin pitkälti Winston Roycen kuvaama malli artikkelissaan Managing the development of large software systems \cite{managing} vuodelta 1970. Huolimatta siitä, että vesiputousmalli on erittäin vanha ja sen käyttäminen sisältää tunnettuja riskejä, on malli edelleen hyvin suosittu. Roycen malli perustuu ajatukselle, että kaikissa ohjelmistokehitystehtävissä on aina ainakin kaksi vaihetta, analyysivaihe ja itse ohjelmiston koodaaminen. Vesiputousmallissa luodaan tämän ajatuksen ympärille laajempi malli, jossa edellämainittuja vaiheita on täydennetty uusilla vaiheilla, jotka ovat kuitenkin täysin erillisiä analyysi- ja koodausvaiheista. Näitä ovat Roycen mallissa \cite{managing} kaksi vaatimusmäärittelyvaihetta, ohjelmiston suunnittelu ja koodauksen jälkeinen testausvaihe. Näillä lisäyksillä malli on soveltuvampi suurten ohjelmistoprojektien läpivientiin. Roycen esittämä malli ei kuitenkaan ole täysin se vesiputousmalli, joka on vielä nykyäänkin käytössä, sillä Royce itsekin ehdottaa parhaimpana versiona mallistaan sellaista, jossa eri vaiheiden välillä voidaan liikkua kumpaankin suuntaan, eli myös takaisinpäin edellseen vaiheeseen.
+
+Royce kuitenkin tiedostaa vesiputousmallin sisältämiä riskejä jo omassa artikkelissaan. Yksi näistä on esimerkiksi vaara, että vasta testivaiheessa huomataan puutteita, jotka johtavat perinpohjaisiin muutoksiin ohjelmiston rakenteessa tai toiminnassa, jolloin käytännössä koko kehitysprosessi joudutaan aloittamaan alusta. Näitä puutteita voi suurellakin todennäköisyydellä ilmetä, sillä testausvaihe on ensimmäinen kerta, kun järjestelmä toimii kokonaisuutena integroituna muihin järjestelmiin \cite{managing}. Toinen merkittävä tekijä, joka monesti jätetään huomioimatta vesiputousmallia käytettäessä, on se, että Royce itsekin suosittelee käymään prosessin läpi kahteen kertaan. Tämä pätee etenkin tilanteisiin, jossa toimitetaan asiakkaalle jokin täysin uusi tuote. Tällöin ensimmäisellä kerralla luodaan pilotti tuotteesta lyhyessä ajassa. Tämän pilotin tarkoituksena on tuoda esiin kehitettävän tuotteen erityiset haasteet, löytää suunnittelun mahdolliset puutteet sekä luoda eri vaihtoehtoja näiden ratkaisemiseen \cite{managing}. Tällöin lyhyessä ajassa kehitetty pilottituote toimii ikään kuin koko projektin simulaationa, jolloin vaikeisiin tilanteisiin osataan varautua paremmin.
+
+Royce ei itsekään pitänyt malliaan parhaana mahdollisena suurten ohjelmistojen kehitykseen, vaan Larmanin ja Basilin artikkelissa \cite{iterative} kerrotaankin, kuinka hän itsekin toteaa vesiputousmallin olevan kaikista yksinkertaisin malli, joka ei kuitenkaan todennäköisesti tule toimimaan kuin kaikkein yksinkertaisimpien ja suoraviivaisimpien projektien yhteydessä. Ensimmäiset maininnat ja kehotukset iteratiiviseen ohjelmistokehitykseen ovatkin jo ajalta ennen Roycen mallin julkaisua. Jo vuonna 1969 IBM:n tutkimuskeskuksessa M.M Lehman kuvasi iteratiivista mallia, jossa erotettiin suunnittelu, arviointi ja dokumentointi \cite{iterative}. Tässä mallissa suunnittelu tuotti jo toimivan mallin, jota sitten iteratiivisesti kehitettiin eteenpäin.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{waterfall.eps}
+\caption{Vesiputousmalli \cite{managing}}
+\end{figure}
+
+\subsection{Spiraalimalli}
+
+\subsection{Scrum}
+
 \section{TDD}
+
+TDD, eli Test-driven development, tarkoittaa testivetoista ohjelmistokehitystä.
 
 \section{ATDD}
 
@@ -89,6 +110,14 @@ Yhteenveto tähän
 
 \begin{thebibliography}{9} % numero aaltosuluissa kertoo, miten paljon
                            % varataan tilaa viitenumerolle
+
+\bibitem{iterative}
+Craig Larman ja Victor Basili, \textit{Iterative and incremental developments. a brief history},
+IEEE Computer Society, Volume: 36, Issue: 6, 2003.
+
+\bibitem{managing}
+Winston Royce, \textit{Managing the development of large software systems},
+Proceedings of IEEE WESCON, 1970.
 
 \bibitem{agilemanifesto}
 \textit{Agile Manifesto}, 2001, saatavilla WWW-muodossa
