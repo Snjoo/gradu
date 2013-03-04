@@ -52,6 +52,8 @@ Tämän pro gradu -tutkielman tavoitteena on kartoittaa behaviour-driven developme
 
 \section{Taustaa ja ketterien menetelmien kehitys}
 
+Niin kauan kuin tietokoneohjelmistoja on kehitetty, on niiden yhteydessä kehitetty myös erilaisia malleja, joiden tarkoituksena on helpottaa ja sujuvoittaa ohjelmistokehitystä. Menetelmät voidaan karkeasti jakaa inkrementaalisiin ja iteratiivisiin menetelmiin \cite{iterative}. Inkrementaalisissa malleissa ideana on se, että ohjelmisto kasvaa jatkuvasti kehittyen kohti lopullista valmista tuotetta, kun taas iteratiivisissa malleissa ohjelmistoa kehitetään pienissä osissa lyhyemillä aikaväleillä ja tätä työtä toistetaan useaan otteeseen. Seuraavassa esitelläänkin muutamia tunnettuja ohjelmistotuotannon malleja ja niiden kehitystä kohti ketteriä menetelmiä.
+
 \subsection{Vesiputousmalli}
 
 Yksi varhaisista ohjelmistokehityksen malleista on inkrementaalinen vesiputousmalli, jonka perustana toimii hyvin pitkälti Winston Roycen kuvaama malli artikkelissaan Managing the development of large software systems \cite{managing} vuodelta 1970. Huolimatta siitä, että vesiputousmalli on erittäin vanha ja sen käyttäminen sisältää tunnettuja riskejä, on malli edelleen hyvin suosittu. Roycen malli perustuu ajatukselle, että kaikissa ohjelmistokehitystehtävissä on aina ainakin kaksi vaihetta, analyysivaihe ja itse ohjelmiston koodaaminen. Vesiputousmallissa luodaan tämän ajatuksen ympärille laajempi malli, jossa edellämainittuja vaiheita on täydennetty uusilla vaiheilla, jotka ovat kuitenkin täysin erillisiä analyysi- ja koodausvaiheista. Näitä ovat Roycen mallissa \cite{managing} kaksi vaatimusmäärittelyvaihetta, ohjelmiston suunnittelu ja koodauksen jälkeinen testausvaihe. Näillä lisäyksillä malli on soveltuvampi suurten ohjelmistoprojektien läpivientiin. Roycen esittämä malli ei kuitenkaan ole täysin se vesiputousmalli, joka on vielä nykyäänkin käytössä, sillä Royce itsekin ehdottaa parhaimpana versiona mallistaan sellaista, jossa eri vaiheiden välillä voidaan liikkua kumpaankin suuntaan, eli myös takaisinpäin edellseen vaiheeseen.
@@ -68,11 +70,27 @@ Royce ei itsekään pitänyt malliaan parhaana mahdollisena suurten ohjelmistojen k
 
 \subsection{Spiraalimalli}
 
+Spiraalimalli on Barry Boehmin kehittämä \cite{spiral} malli vuodelta 1986, joka on ensimmäisiä tunnettuja iteratiivisia malleja ohjelmistokehityksessä. Spiraalimallin tärkeinpänä ajatuksena on se, että siinä otetaan riskit entistä paremmin huomioon verrattuna esimerkiksi perinteiseen vesiputousmalliin. Spiraalimallissa jokainen iteraatio sisältää neljä merkittävää osaa, jotka ovat \cite{spiral}:
+\begin{itemize}
+\item Iteraation tavoitteiden, vaihtoehtojen ja rajoitteiden määrittely
+\item Eri vaihtoehtojen arviointi sekä riskien tunnistaminen ja arviointi
+\item Kehitystyö ja seuraavan tason tuotteen määrittely
+\item Seuraavan iteraation suunnittelu
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.95\textwidth]{spiral.eps}
+\caption{Spiraalimalli \cite{managing}}
+\end{figure}
+
+Mallissa jokaisessa iteraatiossa toteutetaan riskianalyysin jälkeen prototyyppimalli, josta sitten lähdetään kehittämään valmista tuotetta, aivan kuten Roycen \cite{managing} ehdottamassa pilottituotemallissa. Lisäksi spiraalimallissa merkittävää on se, että jokainen iteraatiokierros sillä hetkellä valmiina olevan tuotteen arviointiin, johon osallistuvat kaikki tärkeimmät henkilöt, jotka tulevat käyttämään tuotetta \cite{spiral}. Boehmin malli toimiikin pohjana hyvin monille nykyisille ketterille menetelmille, joissa hyödynnetään samankaltaisia iteraatioita.
+
 \subsection{Scrum}
 
 \section{TDD}
 
-TDD, eli Test-driven development, tarkoittaa testivetoista ohjelmistokehitystä.
+TDD, eli Test-driven development, tarkoittaa testivetoista ohjelmistokehitystä. TDD poikkeaa edellä esitetyistä malleista siinä, että siinä missä edellä esitellyt mallit kattavat koko ohjelmistokehitysprosessin, ottaa TDD kantaa ainoastaan edeltävissä malleissa esiintyneisiin käytännön toteutus- ja testausvaiheisiin. Käytännössä siis nykyään ohjelmistoprojekteissa valitaan jokin koko ohjelmistokehitysprosessin kattava malli, kuten Scrum, jossa sitten hyödynnetään TDD:tä ja sen ohjelmointikäytänteitä. Seuraavassa esitelläänkin TDD:n keskeisimmät ideat ja toimintaperiaatteet, joita käytännön ohjelmistokehityksessä usein noudatetaan.
 
 \section{ATDD}
 
