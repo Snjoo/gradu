@@ -100,8 +100,17 @@ Uudemmassa julkaisussaan vuodelta 2000 Boehm \cite{spiral2} vielä erikseen lista
 \item Tarpeeksi kalenteriaikaa on varattu, jotta voidaan edetä peräkkäisessä järjestyksessä vaihe kerrallaan
 \end{itemize}
 
+Boehm määrittelee myös erilaisia invariantteja, jotka tulee olla olemassa spiraalimallin toimimisen edellytyksenä \cite{spiral2}. Nämä invariantit käytännössä määrittelevät vain tarkemmin spiraalimallin eri osa-alueet ja niiden sisällöt. Näihin Boehmin invariantteihin kuuluu esimerkiksi edellämainitut käytettävän panoksen määrittely riskin perusteella sekä työvaiheen toteutuksen yksityiskohtaisuuden tason arviointi riskin perusteella. Näiden lisäksi Boehmin määrittelemiin invariantteihin lasketaan myös keskittyminen järjestelmään ja sen elinkaareen sen sijaan, että ainoastaan mietittäisiin ohjelmiston kehittämistä teknisestä näkökulmasta \cite{spiral2}.
 
 \subsection{Scrum}
+
+Scrum on moderni iteratiivinen ohjelmistokehityksen viitekehys, jota ovat kehittäneet pääasiallisesti yhdysvaltalaiset Ken Schwaber ja Jeff Sutherland aina 1990-luvun alkupuolelta lähtien. Kuten termi viitekehys antaa ymmärtää, ei Scrum tarjoa mitään yksityiskohtaista prosessia ohjelmistoprojektin toteuttamiseen, vaan ennemminkin juuri kehyksen, jonka puitteissa voidaan hallita monimutkaisten tuotteiden kehitystä \cite{scrumguide}. 
+
+\begin{figure}
+\centering
+\includegraphics[width=0.95\textwidth]{scrum.eps}
+\caption{Scrum \cite{scrumkuva}}
+\end{figure}
 
 \section{TDD}
 
@@ -162,6 +171,13 @@ ACM SIGSOFT Software engineering notes vol 11 no 4, 1986.
 \bibitem{spiral2}
 Barry Boehm, \textit{Spiral Development: Experience, Principles and Refinements},
 Spiral Development Workshop, February 9, 2000.
+
+\bibitem{scrumguide}
+Ken Schwaber ja Jeff Sutherland, \textit{The Scrum Guide}, Scrum.org, 2013.
+
+\bibitem{scrumkuva}
+\textit{Scrum process}, saatavilla WWW-muodossa
+<URL: \texttt{http://en.wikipedia.org/wiki/File:Scrum_process.svg}>, viitattu 24.03.2014.
 
 \bibitem{agilemanifesto}
 \textit{Agile Manifesto}, 2001, saatavilla WWW-muodossa
