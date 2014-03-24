@@ -20,13 +20,13 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{epstopdf}
 
-\title{BDD mobiiliohjelmistojen kehityksen tukena}
-\translatedtitle{Using BDD to support software development on mobile platforms}
+\title{Behavior-driven development mobiiliohjelmistojen kehityksen tukena}
+\translatedtitle{Using behavior-driven development to support software development on mobile platforms}
 
 \setauthor{Samppa}{Hynninen}
 \yhteystiedot{samppa.hynninen@jyu.fi}
 
-\setdate{19}{02}{2013}
+\setdate{24}{03}{2014}
 
 \tiivistelma{Tähän tulee tutkielman tiivistelmä.}
 \abstract{Here comes the abstract of the thesis.}
@@ -56,11 +56,13 @@ Niin kauan kuin tietokoneohjelmistoja on kehitetty, on niiden yhteydessä kehitet
 
 \subsection{Vesiputousmalli}
 
-Yksi varhaisista ohjelmistokehityksen malleista on inkrementaalinen vesiputousmalli, jonka perustana toimii hyvin pitkälti Winston Roycen kuvaama malli artikkelissaan Managing the development of large software systems \cite{managing} vuodelta 1970. Huolimatta siitä, että vesiputousmalli on erittäin vanha ja sen käyttäminen sisältää tunnettuja riskejä, on malli edelleen hyvin suosittu. Roycen malli perustuu ajatukselle, että kaikissa ohjelmistokehitystehtävissä on aina ainakin kaksi vaihetta, analyysivaihe ja itse ohjelmiston koodaaminen. Vesiputousmallissa luodaan tämän ajatuksen ympärille laajempi malli, jossa edellämainittuja vaiheita on täydennetty uusilla vaiheilla, jotka ovat kuitenkin täysin erillisiä analyysi- ja koodausvaiheista. Näitä ovat Roycen mallissa \cite{managing} kaksi vaatimusmäärittelyvaihetta, ohjelmiston suunnittelu ja koodauksen jälkeinen testausvaihe. Näillä lisäyksillä malli on soveltuvampi suurten ohjelmistoprojektien läpivientiin. Roycen esittämä malli ei kuitenkaan ole täysin se vesiputousmalli, joka on vielä nykyäänkin käytössä, sillä Royce itsekin ehdottaa parhaimpana versiona mallistaan sellaista, jossa eri vaiheiden välillä voidaan liikkua kumpaankin suuntaan, eli myös takaisinpäin edellseen vaiheeseen.
+Yksi varhaisista ohjelmistokehityksen malleista on inkrementaalinen vesiputousmalli, jonka perustana toimii hyvin pitkälti Winston Roycen kuvaama malli artikkelissaan Managing the development of large software systems \cite{managing} vuodelta 1970. Huolimatta siitä, että vesiputousmalli on erittäin vanha ja sen käyttäminen sisältää tunnettuja riskejä, on malli edelleen hyvin suosittu. Roycen malli perustuu ajatukselle, että kaikissa ohjelmistokehitystehtävissä on aina ainakin kaksi vaihetta, analyysivaihe ja itse ohjelmiston koodausvaihe. Vesiputousmallissa luodaan tämän ajatuksen ympärille laajempi malli, jossa edellämainittuja vaiheita on täydennetty uusilla vaiheilla, jotka ovat kuitenkin täysin erillisiä analyysi- ja koodausvaiheista. Näitä ovat Roycen mallissa \cite{managing} kaksi vaatimusmäärittelyvaihetta, ohjelmiston suunnittelu ja koodauksen jälkeinen testausvaihe. Näillä lisäyksillä malli on soveltuvampi suurten ohjelmistoprojektien läpivientiin. Roycen esittämä malli ei kuitenkaan ole täysin se vesiputousmalli, joka on vielä nykyäänkin käytössä, sillä Royce itsekin ehdottaa parhaimpana versiona mallistaan sellaista, jossa eri vaiheiden välillä voidaan liikkua kumpaankin suuntaan, eli myös takaisinpäin edellseen vaiheeseen.
 
 Royce kuitenkin tiedostaa vesiputousmallin sisältämiä riskejä jo omassa artikkelissaan. Yksi näistä on esimerkiksi vaara, että vasta testivaiheessa huomataan puutteita, jotka johtavat perinpohjaisiin muutoksiin ohjelmiston rakenteessa tai toiminnassa, jolloin käytännössä koko kehitysprosessi joudutaan aloittamaan alusta. Näitä puutteita voi suurellakin todennäköisyydellä ilmetä, sillä testausvaihe on ensimmäinen kerta, kun järjestelmä toimii kokonaisuutena integroituna muihin järjestelmiin \cite{managing}. Toinen merkittävä tekijä, joka monesti jätetään huomioimatta vesiputousmallia käytettäessä, on se, että Royce itsekin suosittelee käymään prosessin läpi kahteen kertaan. Tämä pätee etenkin tilanteisiin, jossa toimitetaan asiakkaalle jokin täysin uusi tuote. Tällöin ensimmäisellä kerralla luodaan pilotti tuotteesta lyhyessä ajassa. Tämän pilotin tarkoituksena on tuoda esiin kehitettävän tuotteen erityiset haasteet, löytää suunnittelun mahdolliset puutteet sekä luoda eri vaihtoehtoja näiden ratkaisemiseen \cite{managing}. Tällöin lyhyessä ajassa kehitetty pilottituote toimii ikään kuin koko projektin simulaationa, jolloin vaikeisiin tilanteisiin osataan varautua paremmin.
 
 Royce ei itsekään pitänyt malliaan parhaana mahdollisena suurten ohjelmistojen kehitykseen, vaan Larmanin ja Basilin artikkelissa \cite{iterative} kerrotaankin, kuinka hän itsekin toteaa vesiputousmallin olevan kaikista yksinkertaisin malli, joka ei kuitenkaan todennäköisesti tule toimimaan kuin kaikkein yksinkertaisimpien ja suoraviivaisimpien projektien yhteydessä. Ensimmäiset maininnat ja kehotukset iteratiiviseen ohjelmistokehitykseen ovatkin jo ajalta ennen Roycen mallin julkaisua. Jo vuonna 1969 IBM:n tutkimuskeskuksessa M.M Lehman kuvasi iteratiivista mallia, jossa erotettiin suunnittelu, arviointi ja dokumentointi \cite{iterative}. Tässä mallissa suunnittelu tuotti jo toimivan mallin, jota sitten iteratiivisesti kehitettiin eteenpäin.
+
+Kuitenkin vielä nykypäivänäkin suuriakin ohjelmistoprojekteja toteutetaan käyttäen vesiputousmallia, sillä sen koetaan sisältävän joitain etuja tietyissä ohjelmistoprojektin vaiheissa verrattuna ketteriin menetelmiin. Monesti nämä ratkaisevat edut liittyvät erityisesti projektien myyntiin tarjousvaiheessa tehtyjen tarjousten muotoiluun. Vesiputousmallilla myytävissä ratkaisuissa on helpompaa myydä asiakkaalle kiinteällä hinnalla yksi tarkasti määritelty kokonaisuus, jonka myötä asiakas kokee tietävänsä tarkalleen, millaisen tuotteen hän on saamassa ja mihin hintaan. Ketteriä projekteja myytäessä asiakas käytännössä ostaa vain työtä, eikä kiinteästi määritettyä lopputulosta \cite{valtiokonttori}. Tällöin asiakkaalle jää jatkuvasti mahdollisuus vaikuttaa siihen, että tehty työ on juuri sitä, mistä hänelle on eniten hyötyä, eikä ohjelmistoon toteuteta esimerkiksi täysin turhia tai vanhentuneita vaatimuksia. Kuitenkin tästä huolimatta monesti ainoastaan lopullinen kiinteä hinta ja myyntivaiheessa määritelty lopputulos ratkaisevat ostopäätöstä tehdessä, jolloin edelleen nykyään saatetaan päätyä toteuttamaan projekteja vesiputousmallia käyttäen.
 
 \begin{figure}
 \centering
@@ -70,7 +72,7 @@ Royce ei itsekään pitänyt malliaan parhaana mahdollisena suurten ohjelmistojen k
 
 \subsection{Spiraalimalli}
 
-Spiraalimalli on Barry Boehmin kehittämä \cite{spiral} malli vuodelta 1986, joka on ensimmäisiä tunnettuja iteratiivisia malleja ohjelmistokehityksessä. Spiraalimallin tärkeinpänä ajatuksena on se, että siinä otetaan riskit entistä paremmin huomioon verrattuna esimerkiksi perinteiseen vesiputousmalliin. Spiraalimallissa jokainen iteraatio sisältää neljä merkittävää osaa, jotka ovat \cite{spiral}:
+Spiraalimalli on Barry Boehmin kehittämä \cite{spiral} malli vuodelta 1986, joka on ensimmäisiä tunnettuja iteratiivisia malleja ohjelmistokehityksessä. Spiraalimallin tärkeimpänä ajatuksena on se, että siinä otetaan riskit entistä paremmin huomioon verrattuna esimerkiksi perinteiseen vesiputousmalliin. Spiraalimallissa jokainen iteraatio sisältää neljä merkittävää osaa, jotka ovat \cite{spiral}:
 \begin{itemize}
 \item Iteraation tavoitteiden, vaihtoehtojen ja rajoitteiden määrittely
 \item Eri vaihtoehtojen arviointi sekä riskien tunnistaminen ja arviointi
@@ -84,7 +86,20 @@ Spiraalimalli on Barry Boehmin kehittämä \cite{spiral} malli vuodelta 1986, joka
 \caption{Spiraalimalli \cite{managing}}
 \end{figure}
 
-Mallissa jokaisessa iteraatiossa toteutetaan riskianalyysin jälkeen prototyyppimalli, josta sitten lähdetään kehittämään valmista tuotetta, aivan kuten Roycen \cite{managing} ehdottamassa pilottituotemallissa. Lisäksi spiraalimallissa merkittävää on se, että jokainen iteraatiokierros sillä hetkellä valmiina olevan tuotteen arviointiin, johon osallistuvat kaikki tärkeimmät henkilöt, jotka tulevat käyttämään tuotetta \cite{spiral}. Boehmin malli toimiikin pohjana hyvin monille nykyisille ketterille menetelmille, joissa hyödynnetään samankaltaisia iteraatioita.
+Mallissa jokaisessa iteraatiossa toteutetaan riskianalyysin jälkeen prototyyppimalli, josta sitten lähdetään kehittämään valmista tuotetta, aivan kuten Roycen \cite{managing} ehdottamassa pilottituotemallissa. Lisäksi spiraalimallissa merkittävää on se, että jokainen iteraatiokierros sillä hetkellä valmiina olevan tuotteen arviointiin, johon osallistuvat kaikki tärkeimmät henkilöt, jotka tulevat käyttämään tuotetta \cite{spiral}. Boehmin malli toimiikin pohjana hyvin monille nykyisille ketterille menetelmille, joissa hyödynnetään samankaltaisia iteraatioita. Esimerkiksi seuraavana käsiteltävässä Scrumissa sprintit vastaavat hyvin pitkälle spiraalimallin iteraatioita, eli Scrum käytännössä sisältää spiraalimallin prosessit, joiden päälle on vielä vain lisätty muuta.
+
+Spiraalimallissa käytetään erittäin paljon riskiä määrittämään tehtäviä asioita. Boehmin mukaan \cite{spiral} esimerkiksi eri työvaiheisiin käytettävä aika määräytyy sen perusteella, miten ne vaikuttavat olemassaolevaan riskiin. Jos esimerkiksi testaukseen käytetty aika pienentää projektin kokonaisriskiä, siihen kannattaa käyttää aikaa mieluummin kuin esimerkiksi uuden sovelluskehyksen käyttöön vanhan tutun sovelluskehyksen sijaan, sillä tällainen valinta vain lisäisi projektin riskiä ja epäonnistumisen mahdollisuutta. Tämän lisäksi Boehmin mukaan projektiryhmä käyttää riskin arviointia siihen, kuinka yksityiskohtaisella tasolla asioita kannattaa projektissa tehdä \cite{spiral}. Esimerkiksi projektin dokumentointi voisi olla yksi osa-alue, johon tätä voidaan soveltaa. Projektiryhmän tulee tällöin tehdä päätös, milloin projektin dokumentaatio on riittävällä tasolla siten, että sen tarkentamisesta ja edelleen kehittämisestä ei saada enää mitään hyötyä, vaan se voi johtaa vain kasvavaan riskiin, kuten esimerkiksi julkaisun myöhästymiseen.
+
+Uudemmassa julkaisussaan vuodelta 2000 Boehm \cite{spiral2} vielä erikseen listaa merkkejä, jotka erottavat projektin spiraalimallista ja ovat ennenkaikkea haitallisia projektin onnistumisen edellytyksille. Käytännössä nämä merkit ovat sellaisia, joista voidaan huomata käytettävän oikeasti vesiputousmallia, jota vain nimitetään spiraalimalliksi. Tällaisia merkkejä ovat Boehmin mukaan seuraavat kuusi olettamusta \cite{spiral2}:
+\begin{itemize}
+\item Vaatimukset tunnetaan ennen ohjelmiston toteutusta
+\item Vaatimuksissa ei ole epäselviä olettamuksia
+\item Vaatimusten luonne ei muutu kehitystyön ja projektin etenemisen myötä
+\item Vaatimukset täyttävät kaikkien sidosryhmien edustajien oletukset
+\item Oikea arkkitehtuuri vaatimusten täyttämiseen on hyvin ymmärretty ja omaksuttu
+\item Tarpeeksi kalenteriaikaa on varattu, jotta voidaan edetä peräkkäisessä järjestyksessä vaihe kerrallaan
+\end{itemize}
+
 
 \subsection{Scrum}
 
@@ -133,6 +148,9 @@ Yhteenveto tähän
 Craig Larman ja Victor Basili, \textit{Iterative and incremental developments. a brief history},
 IEEE Computer Society, Volume: 36, Issue: 6, 2003.
 
+\bibitem{valtiokonttori}
+Valtiokonttori, Valtion IT-palvelukeskus, \textit{Ketterän palvelukehityksen ostaminen}, 2013. 
+
 \bibitem{managing}
 Winston Royce, \textit{Managing the development of large software systems},
 Proceedings of IEEE WESCON, 1970.
@@ -140,6 +158,10 @@ Proceedings of IEEE WESCON, 1970.
 \bibitem{spiral}
 Barry Boehm, \textit{A spiral model of software development and enhancement},
 ACM SIGSOFT Software engineering notes vol 11 no 4, 1986.
+
+\bibitem{spiral2}
+Barry Boehm, \textit{Spiral Development: Experience, Principles and Refinements},
+Spiral Development Workshop, February 9, 2000.
 
 \bibitem{agilemanifesto}
 \textit{Agile Manifesto}, 2001, saatavilla WWW-muodossa
@@ -178,6 +200,8 @@ IBM developerWorks: http://www.ibm.com/developerworks/java/library/j-cq09187/ind
 
 \bibitem{tech}
 RSpec, Cucumber, JBehave, Robotium, Selenium jne.
+
+
 
 \end{thebibliography}
 
