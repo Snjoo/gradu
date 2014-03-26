@@ -144,7 +144,17 @@ Edellämainittujen tilaisuuksien ohella Scrum-tiimissä on määritelty henkilö, jok
 
 \section{Laatu}
 
-Tietokoneohjelmistojen laadun merkitys on jatkuvasti yhä suuremmassa roolissa, kun monet yhteiskunnan tärkeistä toiminnoista digitalisoituvat. Tämä tarkoittaa myös sitä, että yhä suuremmassa määrin yhteiskunnan toiminnan kannalta kriittiset palvelut nojaavat ohjelmistojen toimintavarmuuteen. Tämä sama ilmiö on tapahtunut myös teollisuudessa, eikä nykypäivänä oikeastaan ole mitään alaa, jossa tietotekniikka ei tarvittaisi.
+Tietokoneohjelmistojen laadun merkitys on jatkuvasti yhä suuremmassa roolissa, kun monet yhteiskunnan tärkeistä toiminnoista digitalisoituvat. Tämä tarkoittaa myös sitä, että yhä suuremmassa määrin yhteiskunnan toiminnan kannalta kriittiset palvelut nojaavat ohjelmistojen toimintavarmuuteen. Tämä sama ilmiö on tapahtunut myös teollisuudessa, eikä nykypäivänä oikeastaan ole mitään alaa, jossa tietotekniikka ei tarvittaisi. Laadunvarmistus ja suhtautuminen laadun käsitteeseen poikkeaa hyvin paljon vaiheellisissa ohjelmistotuotantoprosesseissa verrattuna iteratiivisesti toimiviin prosesseihin. Seuraavassa käsitelläänkin näiden erityispiirteitä ja eroavaisuuksia.
+
+\subsection{Laatu vaiheellisissa ohjelmistotuotantoprosesseissa}
+
+Vaiheellisissa ohjelmistotuotantoprosesseissa, kuten esimerkiksi vesiputousmallissa, testaus ja laadunvarmistus on erotettu omaksi erilliseksi vaiheekseen, joka tapahtuu vasta toteutusvaiheen jälkeen \cite{managing}. Tällöin tilanne on se, että koko projekti on toteutettu valmiiksi asti kiinteillä muuttumattomilla vaatimuksilla, jotka on lukittu ennen toteutustyön aloittamista. Testausvaiheessa toteutettua ohjelmisto testataan näitä vaatimuksia vasten, eli pidetään huolta, että nämä vaatimukset täyttyvät. 
+
+Monesti ongelmallista onkin, että asiakas saa toimivan tuotteen vasta tämän testausvaiheen jälkeen ensimmäistä kertaa itselleen testattavaksi, jolloin kyseessä on mahdollisesti alkuperäisten vaatimusten mukaisesti toimiva tuote, mutta käytännössä asiakkaan näkemys ja tarve on voinut muuttua jo monilta osin sinä aikana, kun ohjelmisto on toteutettu. Näin ollen valmiin tuotteen laatu voikin olla asiakkaan mielestä huonompi kuin projektin toteuttajien näkemys on. Kuitenkin teknisellä tasolla vaiheellisissa prosesseissa voidaan panostaa laatuun aivan samalla tapaa kuin iteratiivisissakin prosesseissa. Implementaatiota tehdessä yksikkötestauksen merkitys laadunvarmistuksessa on aivan yhtä suuri kuin iteratiivisissakin prosesseissa.
+
+Kaikenkaikkiaan vaiheellisissa ohjelmistotuotantoprosesseissa testaukseen ja laadunvarmistukseen on hyvät ja kehittyneet keinot, sillä tämä osa-alue on aina ollut mukana omana vaiheenaan prosesseissa \cite{agilequality}. Ongelmaksi näissä prosesseissa laadun kohdalla muodostuukin lähinnä eri osapuolten käsitys laadusta ja mahdolliset asiakkaan muuttuneet tarpeet.
+
+\subsection{Laatu iteratiivisissa ohjelmistotuotantoprosesseissa}
 
 \section{TDD}
 
@@ -216,6 +226,10 @@ Ken Schwaber ja Jeff Sutherland, \textit{The Scrum Guide}, Scrum.org, 2013.
 \bibitem{msretro}
 David Starr, \textit{Effective Sprint Retrospectives}, 2012, saatavilla WWW-muodossa
 <URL: \texttt{http://msdn.microsoft.com/en-us/library/jj620912.aspx}, viitattu 26.03.2014.
+
+\bibitem{agilequality}
+Ming Huo, June Verner, Liming Zhu ja Muhammad Ali Babar, \textit{Software Quality and Agile Methods}, 
+Computer Software and Applications Conference, 2004. COMPSAC 2004. Proceedings of the 28th Annual International
 
 \bibitem{agilemanifesto}
 \textit{Agile Manifesto}, 2001, saatavilla WWW-muodossa
