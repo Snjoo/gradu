@@ -156,6 +156,13 @@ Kaikenkaikkiaan vaiheellisissa ohjelmistotuotantoprosesseissa testaukseen ja laa
 
 \subsection{Laatu iteratiivisissa ohjelmistotuotantoprosesseissa}
 
+Iteratiivisista ohjelmistotuotantoprosesseista tässä keskitytään erityisesti Scrumiin ja sen suhtautumiseen laatuun. Iteratiivisissa prosesseissa jokaisen sprintin voidaan ajatella toimivan ikäänkuin samalla tavoin kuin kokonaisen vesiputousmallin projektin kaikki vaiheet, sprintin sisältä ei kuitenkaan välttämättä voida selvästi näitä vaiheita erottaa \cite{agilequality}. Kuitenkin toteutustyössä tärkeitä laadunvarmistuksen välineitä ovat esimerkiksi yksikkötestit, joita käytetään aivan samalla tavoin kuin vaiheellisissa prosesseissa. Erona vaiheellisiin prosesseihin, iteratiivisissa prosesseissa testaus tehdään pohjautuen sprintiin valittuihin tehtäviin, joka tarkoittaa sitä, että sprintiin valituille töille on määritetty hyväksymiskriteerit, joissa määritellään milloin haluttu ominaisuus on valmis. Sprintin aikana valmistuvia tehtäviä testataan sitten asetettuja hyväksymiskriteerejä vasten, jotka määritellään yhdessä asiakkaan kanssa.
+
+Sprinteissä tapahtuvan testauksen ja laadunvarmistuksen ohella Software Quality and Methods -julkaisu \cite{agilequality} listaa muutamia muita iteratiivisissa ohjelmistotuotantoprosesseissa yleisesti käytössä olevia toimintatapoja, joiden voidaan katsoa parantavan ohjelmiston laatua:
+\begin{itemize}
+\item Jatkuvalla integraatiolla tarkoitetaan käytäntöä, jossa ohjelmistoon tehtyjä muutoksia integroidaan jatkuvasti ja muutosten myötä automaattisesti testataan ohjelmiston toiminta ja integraatiot \cite{ci}. Tällaisella käytännöllä kehitystiimillä on jatkuvasti toimiva ohjelmisto ja kehitystiimi pääsee eroon suuresta riskistä, joka syntyy, kun suuri määrä muutoksia ohjelmistoon otetaan käyttöön samaan aikaan. Kun tehdyt muutokset integroidaan heti valmistumisen jälkeen, voidaan mahdollisiin virheisiin tai suurempiin ongelmiin puuttua heti.
+\end{itemize}
+
 \section{TDD}
 
 TDD, eli Test-driven development, tarkoittaa testivetoista ohjelmistokehitystä. TDD poikkeaa edellä esitetyistä malleista siinä, että siinä missä edellä esitellyt mallit kattavat koko ohjelmistokehitysprosessin, ottaa TDD kantaa ainoastaan edeltävissä malleissa esiintyneisiin käytännön toteutus- ja testausvaiheisiin. Käytännössä siis nykyään ohjelmistoprojekteissa valitaan jokin koko ohjelmistokehitysprosessin kattava malli, kuten Scrum, jossa sitten hyödynnetään TDD:tä ja sen ohjelmointikäytänteitä. Seuraavassa esitelläänkin TDD:n keskeisimmät ideat ja toimintaperiaatteet, joita käytännön ohjelmistokehityksessä usein noudatetaan.
@@ -230,6 +237,10 @@ David Starr, \textit{Effective Sprint Retrospectives}, 2012, saatavilla WWW-muod
 \bibitem{agilequality}
 Ming Huo, June Verner, Liming Zhu ja Muhammad Ali Babar, \textit{Software Quality and Agile Methods}, 
 Computer Software and Applications Conference, 2004. COMPSAC 2004. Proceedings of the 28th Annual International
+
+\bibitem{ci}
+Martin Fowler, \textit{Continuous Integration}, 2006, saatavilla WWW-muodossa
+<URL: \texttt{http://martinfowler.com/articles/continuousIntegration.html}, viitattu 26.03.2014.
 
 \bibitem{agilemanifesto}
 \textit{Agile Manifesto}, 2001, saatavilla WWW-muodossa
