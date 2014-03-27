@@ -48,6 +48,11 @@ Ohjelmistotestauksen ollessa kriittinen osa ohjelmistotuotantoprosessia ja erity
 
 Tämän pro gradu -tutkielman tavoitteena on kartoittaa behaviour-driven developmentin tarjoamia mahdollisuuksia helpottaa mobiiliohjelmistojen kehitystä ja erityisesti testausta. Tarkoituksena on selvittää millaisia BDD-testikehyksiä merkittävimmille mobiilialustoille on tällä hetkellä olemassa ja miten eri mobiilialustojen testikehykset poikkeavat toisistaan. Tämä lisäksi tarkoituksena on selvittää, millaisia liiketoiminnallisia etuja BDD:llä voidaan mobiilisovelluskehityksessä saavuttaa. Tutkielma toteutetaan käyttäen konstruktiivista tutkimusotetta ja siinä pyritään lopputuloksena toteuttamaan ympäristö, jossa samaa sovellusta voitaisiin testataan eri mobiilialustoilla yhdellä testikokoelmalla. Testiympäristön toteutuksen yhteydessä tutkitaan millaisia puutteita nykyratkaisuissa on ja miten niitä voitaisiin kehittää, jotta yhden testikokoelman mallia voitaisiin käyttää.
 
+\chapter{Tutkimuksesta}
+\section{Termejä}
+\section{Kirjallisuuskatsaus}
+\section{Tutkimusmenetelmistä}
+
 \chapter{Ketterä ohjelmistokehitys}
 
 \section{Taustaa ja ketterien menetelmien kehitys}
@@ -160,8 +165,12 @@ Iteratiivisista ohjelmistotuotantoprosesseista tässä keskitytään erityisesti Scr
 
 Sprinteissä tapahtuvan testauksen ja laadunvarmistuksen ohella Software Quality and Methods -julkaisu \cite{agilequality} listaa muutamia muita iteratiivisissa ohjelmistotuotantoprosesseissa yleisesti käytössä olevia toimintatapoja, joiden voidaan katsoa parantavan ohjelmiston laatua:
 \begin{itemize}
-\item Jatkuvalla integraatiolla tarkoitetaan käytäntöä, jossa ohjelmistoon tehtyjä muutoksia integroidaan jatkuvasti ja muutosten myötä automaattisesti testataan ohjelmiston toiminta ja integraatiot \cite{ci}. Tällaisella käytännöllä kehitystiimillä on jatkuvasti toimiva ohjelmisto ja kehitystiimi pääsee eroon suuresta riskistä, joka syntyy, kun suuri määrä muutoksia ohjelmistoon otetaan käyttöön samaan aikaan. Kun tehdyt muutokset integroidaan heti valmistumisen jälkeen, voidaan mahdollisiin virheisiin tai suurempiin ongelmiin puuttua heti.
+\item Jatkuvalla integraatiolla tarkoitetaan käytäntöä, jossa ohjelmistoon tehtyjä muutoksia integroidaan jatkuvasti ja muutosten myötä automaattisesti testataan ohjelmiston toiminta ja integraatiot \cite{ci}. Tällaisella käytännöllä kehitystiimillä on jatkuvasti toimiva ohjelmisto, ja kehitystiimi pääsee eroon suuresta riskistä, joka syntyy, kun suuri määrä muutoksia ohjelmistoon otetaan käyttöön samaan aikaan. Kun tehdyt muutokset integroidaan heti valmistumisen jälkeen muuhun järjestelmään, voidaan mahdollisiin virheisiin tai suurempiin ongelmiin puuttua heti. 
+\item Jatkuvan integraation palvelimet, kuten esimerkiksi yksi suosituimmista avoimeen lähdekoodiin perustuviasta ratkaisuista, Jenkins \cite{jenkins}, toimivat jatkuvan integraation mahdollistajina. Käytännössä nämä palvelimet aina versiohallinnassa tapahtuvien muutosten yhteydessä buildaavat sovelluksen automaattisesti, ajavat sille kirjoitetut testit ja ottavat sen mahdollisesti käyttöön sovelluspalvelimella. Jatkuvan integraation palvelimet antavat siten heti viestin, mikäli ohjelmiston buildaaminen ei onnistu tai testeissä on virheitä, jolloin kehittäjät tietävät virheistä lähes heti commitin jälkeen \cite{ci}.
+\item Usein iteratiivisissa prosesseissa, kuten Scrumissa, on kommunikaatiolla ja yhdessä asiakkaan kanssa työskentelyllä tärkeä rooli, jonka voidaan nähdä parantavan ohjelmiston laatua. Tällä tavoin asiakkaaseen saadaan helposti yhteyttä ja hänen kanssaan voidaan jatkuvasti kommunikoida, mikä edistää esimerkiksi epäselvien vaatimusten selvityksessä ja niiden jatkuvaa parantamista \cite{agilequality}. Myös esimerkiksi Scrum-tiimin tuoteomistaja on usein asiakkaan edustaja, jolloin asiakkaalla on jatkuvasti todella hyvä näkyvyys siihen, mitä ollaan tekemässä, kun tuoteomistaja vastaa tuotebacklogin priorisoinnista. Tällöin asiakas voi varmistaa sen, että kehitystiimi työskentelee jatkuvasti sellaisten töiden parissa, jotka ovat asiakkaalle kaikkein hyödyllisimpiä. Tilanne, jossa tuoteomistaja on nimetty asiakkaan puolesta, on kommunikaatiomahdollisuuksiensa puolesta lähes ihanteellinen, sillä Scrumissa tuoteomistaja on henkilö, jolla tulisi olla jatkuvasti kaikkein paras visio siitä, mitä ollaan tekemässä ja mitä ohjelmistoon seuraavaksi halutaan tehdä \cite{scrumguide}.
 \end{itemize}
+
+Ketterissä menetelmissä kehittäjillä on enemmän vastuuta ohjelmiston laadusta kuin perinteisissa vaiheellisissa ohjelmistotuotantoprosesseissa. Tämä ei tule varsinaisesti esille suoraan iteratiivisissa ohjelmistotuotantoprosesseissa, mutta tämä johtuu hyvin pitkälti siitä, että näissä prosesseissa pelkän suunnittelun määrä on usein minimoitu ja jonkinlaista toteutusta lähdetään tekemään lähes heti. Tällöin laadunvarmistusta joudutaan tekemään paljon jo kehittäjien toimesta ohjelmistoa implementoidessa \cite{agilequality}. Nopeisiin sykleihin, jatkuvaan integraatioon ja tuotteen toimituksiin on ohjelmistoalalla iteratiivisissa prosesseissa sopeuduttu ohjelmistokehityksen toimintatapoja on muokkaamalla siten, että ohjelmoinnissa käytetään menetelmiä, joiden voidaan katsoa edistävän laadunvarmistusta. Yksi tärkeistä laatua edistävistä ohjelmistokehityksen malleista on TDD, jota käsitellään seuraavassa.
 
 \section{TDD}
 
@@ -241,6 +250,10 @@ Computer Software and Applications Conference, 2004. COMPSAC 2004. Proceedings o
 \bibitem{ci}
 Martin Fowler, \textit{Continuous Integration}, 2006, saatavilla WWW-muodossa
 <URL: \texttt{http://martinfowler.com/articles/continuousIntegration.html}, viitattu 26.03.2014.
+
+\bibitem{jenkins}
+\textit{Jenkins - An extendable open source continuous integration server}, saatavilla WWW-muodossa
+<URL: \texttt{http://jenkins-ci.org/}, viitattu 27.03.2014.
 
 \bibitem{agilemanifesto}
 \textit{Agile Manifesto}, 2001, saatavilla WWW-muodossa
