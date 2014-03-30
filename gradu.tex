@@ -176,7 +176,22 @@ Ketterissä menetelmissä kehittäjillä on enemmän vastuuta ohjelmiston laadusta ku
 
 TDD, eli Test-driven development, tarkoittaa testivetoista ohjelmistokehitystä. TDD poikkeaa edellä esitetyistä malleista siinä, että siinä missä edellä esitellyt mallit kattavat koko ohjelmistokehitysprosessin, ottaa TDD kantaa ainoastaan edeltävissä malleissa esiintyneisiin käytännön toteutus- ja testausvaiheisiin. Käytännössä siis nykyään ohjelmistoprojekteissa valitaan jokin koko ohjelmistokehitysprosessin kattava malli, kuten Scrum, jossa sitten hyödynnetään TDD:tä ja sen ohjelmointikäytänteitä. Seuraavassa esitelläänkin TDD:n keskeisimmät ideat ja toimintaperiaatteet, joita käytännön ohjelmistokehityksessä usein noudatetaan.
 
-Yksinkertaistettuna testivetoisessa ohjelmistokehityksessa ideana on se, että testit kirjoitetaan ennen kuin kirjoitetaan riviäkään koodia.
+Yksinkertaistettuna testivetoisessa ohjelmistokehityksessa ideana on se, että testit kirjoitetaan ennen kuin kirjoitetaan riviäkään koodia. Käytännössä tämä tarkoittaa sitä, että ennen ohjelmointia testeillä määritellään se, mitä seuraavaksi kirjoitettavan metodin olisi tarkoitus tehdä. Työvaiheet tässä prosessissa ovat seuraavanlaiset \cite{tdd}:
+\begin{itemize}
+\item Kirjoitetaan testi, joka ei mene läpi.
+\item Kirjoitetaan koodi, joka läpäisee testin. Tässä vaiheessa ei ole vaatimuksia koodin optimoinnille tai laadulle.
+\item Ajetaan testit ja todetaan niiden menevän läpi.
+\item Refaktorointi. Refaktoroidaan kohdassa kaksi kirjoitettua koodia, eli esimerkiksi poistetaan siitä kaikenlaiset epäloogisuudet, siirretään metodi loogisesti oikeaan paikkaan ja nimetään se järkevästi.
+\item Aloitetaan prosessi alusta.
+\end{itemize}
+
+TDD:n voidaan katsoa edistävän työskentelyn tehokkuutta ainakin neljästä eri näkökulmasta \cite{tddeff}. Ensiksikin kehittäjä saa jatkuvaa palautetta työstään viiveettä. Hän näkee heti toimiiko tekemänsä koodi oikein ja rikkooko se mahdollisesti muita toiminnallisuuksia ja niiden testejä. Tällöin kehittäjä pystyy heti korjaamaan virheensä, eikä niitä ehdi kasaantua kerralla paljoa.
+
+Samalla tämä yhteen metodiin keskittyminen kerrallaan ohjaa ja jaksottaa kehittäjän työskentelyä. Tämä tarkoittaa sitä, että kehittäjä keskittyy yhteen tehtävään kerrallaan, kunnes saa valmiiksi toimivan testatun kokonaisuuden. Tämän myötä kehittäjien on välttämätöntä myös pilkkoa työtään pienempiin osiin siten, että tällainen tehtävä kerrallaan läpiviety kehitys on edes mahdollista \cite{tddeff}. Kun tehtävät pilkotaan riittävän pieniksi, kehittäjien on helpompi arvioida niihin kuluvaa aikaa, heillä on parempi käsitys siitä, mitä jonkin asian valmistuminen vielä vaatii ja he kykenevät hallitsemaan omia työn alla olevia töitään helpommin.
+
+Kolmantena TDD tarjoaa omalta osaltaan yhden keinon laadunvarmistukseen. 
+ 
+Viimeiseksi TDD:ssä keskitytään ennen kaikkea matalalla tasolla koodin testaamiseen. Kun liikutaan yksittäisten metodien tasolla, on ohjelmoijalla usein hyvä näkemys siitä, mitä kirjoitettavan metodin olisi tarkoitus tehdä. Tällöin koodin laatu paranee ainaki n tällä matalalla tasolla, mutta TDD ei ota kantaa, eikä auta ohjelmoijaa ymmärtämään korkeamman tason toiminnallisia vaatimuksia tai suurempia kokonaisuuksia \cite{tdd}. Tähän ongelmaan ratkaisuksi on lähivuosina kehitetty toimintatapoja, joilla pystytään hallitsemaan paremmin edellämainittujen korkeamman tason vaatimusten täyttymistä. Näitä menetelmiä ovat muun muassa Acceptance Test-Driven Development (ATDD) sekä Behaviour-Driven Development (BDD), joita käsitellään tarkemmin jäljempänä.
 
 \begin{figure}
 \centering
@@ -263,6 +278,9 @@ Martin Fowler, \textit{Continuous Integration}, 2006, saatavilla WWW-muodossa
 \bibitem{jenkins}
 \textit{Jenkins - An extendable open source continuous integration server}, saatavilla WWW-muodossa
 <URL: \texttt{http://jenkins-ci.org/}, viitattu 27.03.2014.
+
+\bibitem{tddeff}
+Hakan Erdogmus, Maurizio Morisio ja Marco Torchiano, \textit{On the Effectiveness of the Test-First Approach to Programming}, IEEE Transactions On Software Engineering, Vol. 31, No. 3, 2005
 
 \bibitem{agilemanifesto}
 \textit{Agile Manifesto}, 2001, saatavilla WWW-muodossa
