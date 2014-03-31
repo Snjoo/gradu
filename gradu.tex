@@ -50,6 +50,20 @@ Tämän pro gradu -tutkielman tavoitteena on kartoittaa behaviour-driven developme
 
 \chapter{Tutkimuksesta}
 \section{Termejä}
+\begin{itemize}
+\item Apache Cordova: Avoimen lähdekoodin ohjelmisto, johon PhoneGap perustuu.
+\item BDD: Behaviour-driven development. Käyttäytymislähtöinen kehitys. Ohjelmistokehitysprosessi, jossa vaatimukset pohjautuvat ohjelmiston käyttäytymiseen.
+\item CI: Continuous Integration, jatkuva integraatio.
+\item Cucumber: Rubylla kirjoitettu BDD-testikehys.
+\item HTML5: HTML-merkintäkielen uusin versio ja samalla käsite nykyaikaisille web-teknologioille, kuten JavaScriptille ja CSS3:lle.
+\item Jasmine: BDD-testikehys JavaScript-ohjelmointikielelle.
+\item JBehave: Yksi ensimmäisistä BDD-testikehyksistä Java-ohjelmointikielelle.
+\item Natiivisovellus: Jonkin sovellusalustan omalla kehitysympäristöllä ja ohjelmointikielellä toteutettu sovellus.
+\item PhoneGap: Adoben omistama mobiiliohjelmistokehys, jolla voidaan toteuttaa monialustaisia sovelluksia moderneilla web-teknologioilla.
+\item RSpec: BDD-testikehys Ruby-ohjelmointikielelle.
+\item Selenium: Työkalu verkkoselaimen automatisointiin.
+\item TDD: Test-driven development. Testivetoinen kehitys, ohjelmistokehityksen prosessi, jossa testit kirjoitetaan ennen ohjelmakoodia
+\end{itemize}
 \section{Kirjallisuuskatsaus}
 \section{Tutkimusmenetelmistä}
 
@@ -195,7 +209,7 @@ Viimeiseksi TDD:ssä keskitytään ennen kaikkea matalalla tasolla koodin testaamis
 
 Vuonna 2005 julkaistussa tutkimuksessa \cite{tddeff} suurimpana kysymyksenä oli selvittää TDD:n vaikutusta tuottavuuteen. Tutkimuksessa todettiin testilähtöisen kehityksen todella lisäävän kehittäjien tuottavuutta. Tähän löydettiin tutkimuksessa \cite{tddeff} useita syitä. Yksi näistä oli jo edelläkin mainittu tehtävien pilkkominen ja sen myötä niihin keskittyminen. Näillä toimenpiteillä tehtävät ovat helpommin ymmärrettäviä kokonaisuuksia, jotka voidaan helposti toteuttaa kerralla. Tutkimus myös toteaa \cite{tddeff}, että testivetoisessa kehityksessä huonot ja tehottomat toimintatavat hylätään verrattain nopeasti ja ne korvataan paremmilla. Useimmissa prosessimalleissa tällaiset päätökset tekevät kehittäjät itse, eli näitä parannuksia ei osoiteta mistään ylemmältä taholta. Esimerkiksi Scrumissa kehitystiimi itse käy jokaisen sprintin jälkeen retrospektiivissa läpi omaa toimintaansa ja yrittää löytää siitä kehityskohteita \cite{scrumguide}. Tämä jatkuva toimintatapojen tehostaminen johtaa myös nopeaan oppimiseen. TDD laskee myös kynnystä asioiden uudelleen tekemiselle ja refaktoroinnille \cite{tddeff}. Kun ohjelmisto on toteutettu pienistä erikseen testatuista osista, on helppoa lähteä korjaamaan yhtä hajonnutta testiä, sillä hajoamisen syy on usein helppo löytää, kun testi kattaa vain yhden pienen osan ohjelmistosta, esimerkiksi yhden metodin, jonka tehtävän pitäisi olla helposti selitettävä.
 
-Kaikenkaikkiaan vuoden 2005 tutkimuksessa \cite{tddeff} päädyttiin tulokseen, jonka mukaan testivetoinen kehitys todellakin parantaa työn tuottavuutta edellämainittujen seikkojen myötä. Samalla tutkimuksessa kuitenkin todetaan, että testivetoinen ohjelmistokehitys ei suoranaisesti paranna ohjelmistojen laatua. Tämä johtui siitä, että vaikka ohjelmistokehittäjät kirjoivat TDD:tä käyttäessään määrällisesti enemmän testejä, testien laatu riippui hyvin paljon kehittäjän kokemuksesta tehdä töitä testivetoisesti \cite{tddeff}. Toisaalta myös matalan tason yksikkötesteistä saatavan hyödyn voitiin katsoa häviävän siinä, että kehittäjät pystyivät monissa tilanteissa ohjelmaa tarkastelemaal helposti toteamaan saman asian kuin mitä yksikkötesti testaa \cite{tddeff}.
+Kaikenkaikkiaan vuoden 2005 tutkimuksessa \cite{tddeff} päädyttiin tulokseen, jonka mukaan testivetoinen kehitys todellakin parantaa työn tuottavuutta edellämainittujen seikkojen myötä. Samalla tutkimuksessa kuitenkin todetaan, että testivetoinen ohjelmistokehitys ei suoranaisesti paranna ohjelmistojen laatua. Tämä johtui siitä, että vaikka ohjelmistokehittäjät kirjoivat TDD:tä käyttäessään määrällisesti enemmän testejä, testien laatu riippui hyvin paljon kehittäjän kokemuksesta tehdä töitä testivetoisesti \cite{tddeff}. Testivetoisessa kehityksessä testeillä osaltaan ohjataan kehittäjän työtä, eli kehittäjä kertoo testeillä itselleen mitä hänen pitäisi seuraavaksi tehdä. Taito kirjoittaa hyviä testejä, jotka testaavat oikeita asioita syntyy vain testejä kirjoittamalla, eli tässä tilanteessa kokemus ja työskentelytapaan tottuminen tuovat lisää tehokkuutta työskentelyyn. Toisaalta myös matalan tason yksikkötesteistä saatavan hyödyn voitiin katsoa häviävän siinä, että kehittäjät pystyivät monissa tilanteissa ohjelmaa tarkastelemalla helposti toteamaan saman asian kuin mitä yksikkötesti testaa \cite{tddeff}.
 
 \begin{figure}
 \centering
