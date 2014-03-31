@@ -64,8 +64,12 @@ Tämän pro gradu -tutkielman tavoitteena on kartoittaa behaviour-driven developme
 \item Selenium: Työkalu verkkoselaimen automatisointiin.
 \item TDD: Test-driven development. Testivetoinen kehitys, ohjelmistokehityksen prosessi, jossa testit kirjoitetaan ennen ohjelmakoodia
 \end{itemize}
-\section{Kirjallisuuskatsaus}
+
+\section{Aikaisemmat tutkimukset}
+Aikaisempaa tieteellistä tutkimusta Behaviour-driven developmentista on tehty verrattain vähän, sillä aihepiiri on niin tuore. Terminä BDD on tullut käyttöön ensimmäisiä kertoja vasta 2000-luvun puolivälissä erirtyisesti Dan Northin blogitekstien myötä \cite{bddintro}. Täten voidaan laskea BDD:n olevan käsitteenäkin vasta noin kymmenen vuoden ikäinen. 
+
 \section{Tutkimusmenetelmistä}
+Tutkimus on toteutettu käyttäen konstruktiivista tutkimusotetta.
 
 \chapter{Ketterä ohjelmistokehitys}
 
@@ -92,12 +96,12 @@ Kuitenkin vielä nykypäivänäkin suuriakin ohjelmistoprojekteja toteutetaan käyttä
 \subsection{Spiraalimalli}
 
 Spiraalimalli on Barry Boehmin kehittämä \cite{spiral} malli vuodelta 1986, joka on ensimmäisiä tunnettuja iteratiivisia malleja ohjelmistokehityksessä. Spiraalimallin tärkeimpänä ajatuksena on se, että siinä otetaan riskit entistä paremmin huomioon verrattuna esimerkiksi perinteiseen vesiputousmalliin. Spiraalimallissa jokainen iteraatio sisältää neljä merkittävää osaa, jotka ovat \cite{spiral}:
-\begin{itemize}
+\begin{enumerate}
 \item Iteraation tavoitteiden, vaihtoehtojen ja rajoitteiden määrittely
 \item Eri vaihtoehtojen arviointi sekä riskien tunnistaminen ja arviointi
 \item Kehitystyö ja seuraavan tason tuotteen määrittely
 \item Seuraavan iteraation suunnittelu
-\end{itemize}
+\end{enumerate}
 
 \begin{figure}
 \centering
@@ -110,14 +114,14 @@ Mallissa jokaisessa iteraatiossa toteutetaan riskianalyysin jälkeen prototyyppim
 Spiraalimallissa käytetään erittäin paljon riskiä määrittämään tehtäviä asioita. Boehmin mukaan \cite{spiral} esimerkiksi eri työvaiheisiin käytettävä aika määräytyy sen perusteella, miten ne vaikuttavat olemassaolevaan riskiin. Jos esimerkiksi testaukseen käytetty aika pienentää projektin kokonaisriskiä, siihen kannattaa käyttää aikaa mieluummin kuin esimerkiksi uuden sovelluskehyksen käyttöön vanhan tutun sovelluskehyksen sijaan, sillä tällainen valinta vain lisäisi projektin riskiä ja epäonnistumisen mahdollisuutta. Tämän lisäksi Boehmin mukaan projektiryhmä käyttää riskin arviointia siihen, kuinka yksityiskohtaisella tasolla asioita kannattaa projektissa tehdä \cite{spiral}. Esimerkiksi projektin dokumentointi voisi olla yksi osa-alue, johon tätä voidaan soveltaa. Projektiryhmän tulee tällöin tehdä päätös, milloin projektin dokumentaatio on riittävällä tasolla siten, että sen tarkentamisesta ja edelleen kehittämisestä ei saada enää mitään hyötyä, vaan se voi johtaa vain kasvavaan riskiin, kuten esimerkiksi julkaisun myöhästymiseen.
 
 Uudemmassa julkaisussaan vuodelta 2000 Boehm \cite{spiral2} vielä erikseen listaa merkkejä, jotka erottavat projektin spiraalimallista ja ovat ennenkaikkea haitallisia projektin onnistumisen edellytyksille. Käytännössä nämä merkit ovat sellaisia, joista voidaan huomata käytettävän oikeasti vesiputousmallia, jota vain nimitetään spiraalimalliksi. Tällaisia merkkejä ovat Boehmin mukaan seuraavat kuusi olettamusta \cite{spiral2}:
-\begin{itemize}
+\begin{enumerate}
 \item Vaatimukset tunnetaan ennen ohjelmiston toteutusta
 \item Vaatimuksissa ei ole epäselviä olettamuksia
 \item Vaatimusten luonne ei muutu kehitystyön ja projektin etenemisen myötä
 \item Vaatimukset täyttävät kaikkien sidosryhmien edustajien oletukset
 \item Oikea arkkitehtuuri vaatimusten täyttämiseen on hyvin ymmärretty ja omaksuttu
 \item Tarpeeksi kalenteriaikaa on varattu, jotta voidaan edetä peräkkäisessä järjestyksessä vaihe kerrallaan
-\end{itemize}
+\end{enumerate}
 
 Boehm määrittelee myös erilaisia invariantteja, jotka tulee olla olemassa spiraalimallin toimimisen edellytyksenä \cite{spiral2}. Nämä invariantit käytännössä määrittelevät vain tarkemmin spiraalimallin eri osa-alueet ja niiden sisällöt. Näihin Boehmin invariantteihin kuuluu esimerkiksi edellämainitut käytettävän panoksen määrittely riskin perusteella sekä työvaiheen toteutuksen yksityiskohtaisuuden tason arviointi riskin perusteella. Näiden lisäksi Boehmin määrittelemiin invariantteihin lasketaan myös keskittyminen järjestelmään ja sen elinkaareen sen sijaan, että ainoastaan mietittäisiin ohjelmiston kehittämistä teknisestä näkökulmasta \cite{spiral2}.
 
