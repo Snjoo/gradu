@@ -221,8 +221,14 @@ Kaikenkaikkiaan vuoden 2005 tutkimuksessa \cite{tddeff} päädyttiin tulokseen, jo
 \caption{TDD-työvaiheet}
 \end{figure}
 
-
 \section{ATDD}
+ATDD eli Acceptance Test-driven development tarkoittaa nimensä mukaisesti hyväksymistestilähtöistä ohjelmistokehitystä. 
+
+ATDD:llä ja BDD:llä tarkoitetaan useissa yhteyksissä samaa asiaa, sillä termit ovat alalla vielä niin uusia, eikä vakiintuneita käytäntöjä ole. Tämän myötä termistö ja nimet muuttuvat jatkuvasti kehityksen myötä. Hyvin pitkälti ATDD:n ja BDD:n ero voidaan nähdä löytyvän ennemminkin siinä, minkä tasoiseen testaamiseen niissä keskitytään \cite{difference}. Toinen tasoista on ATDD:n hyväksymistestilähtöinen malli, jossa keskitytään automaattisiin hyväksymistesteihin, joilla määritellään selviä vaatimuksia kehittäjätiimille, jotka toteutetun järjestelmän tulee täyttää \cite{specification}.
+
+BDD sen sijaan toimii tasolla, jossa määritellään erilaisia skenaarioita, joiden tavalla järjestelmän tulisi toimia. BDD:n mallissa keskeistä on ennenkaikkea luoda ymmärrystä kehittäjien ja muiden sidosryhmien, kuten esimerkiksi asiakkaan edustajien, välille \cite{specification}. Tämän ohella kuitenkin BDD auttaa myös välttämään toiminnallisia regressiobugeja aivan kuten ATDD:kin. Kummatkin tasoista toteuttavat kuitenkin myös osaltaan esimerkein määrittelyn periaatteita ja estävät toiminnallisia regressiobugeja syntymästä. ATDD:n tason voidaan nähdä myös soveltuvan paremmin tietynlaisiin toimintaympäristöihin, kun taas BDD:n taso toimii toisaalla paremmin. Gojko Adzic kirjoittaa Specification by Example -kirjassaan \cite{specification} ATDD:n mallin olevan hyödyllisempi, jos ollaan toteuttamassa ohjelmistoa, jossa on useita laatuun liittyviä haasteita. BDD:n tason taas voidaan nähdä sopivan paremmin tilanteeseen, jossa ei ole suurempia ongelmia ja BDD:tä voidaankin käyttää lähinnä selittämään asioita. 
+
+Kumpikin malli kuitenkin tuottaa erittäin hyvää dokumentaatiota järjestelmästä ilman erillistä panostusta sen tekemiseen, ja tämän voidaankin nähdä olevan yksi suurimmista eduista, joita saavutetaan käyttämällä ATDD:tä tai BDD:tä \cite{specification}. Haastatteluissaan Adzic sai kirjassaan selville jopa sen, että hyvin tehtynä selkeät, ylläpidettävät testit monesti jopa riittivät ainoaksi dokumentaatioksi järjestelmästä, sillä niiden käyttö oli helpompaa kuin erillisten dokumenttien tuottaminen \cite{specification}. Useat BDD- ja ATDD-työkalut, kuten esimerkiksi Cucumber \cite{cucumber} myös tukevat automaattisesti esimerkiksi nettisivujen luontia testeistä, jolloin niistä saadaan dokumentaation kaltainen artefakti hyvin pienellä vaivalla.
 
 \chapter{Behaviour-driven development}
 
@@ -324,6 +330,14 @@ Dan North, \textit{Introducing BDD}, 2006, saatavilla WWW-muodossa
 Gojko Adzic, \textit{Specification by Example},
 Manning Publications Co, 2011.
 
+\bibitem{cucumber}
+\textit{Cucumber - Making BDD fun}, saatavilla WWW-muodossa
+<URL: \texttt{http://cukes.info/}>, viitattu 31.03.2014.
+
+\bibitem{difference}
+\textit{What is TDD, BDD \& ATDD?}, 2012, saatavilla WWW-muodossa
+<URL: \texttt{http://assertselenium.com/2012/11/05/difference-between-tdd-bdd-atdd/}, viitattu 31.03.2014.
+
 \bibitem{bridging}
 Gojko Adzic, \textit{Bridging the Communication Gap, Specification by Example and Agile Acceptance Testing},
 Neuri Limited, 2009.
@@ -334,7 +348,7 @@ ACM-SE '12 Proceedings of the 50th Annual Southeast Regional Conference, s. 158-
 
 \bibitem{bddintro2}
 Chris Rimmer, \textit{Introduction, Behaviour-Driven Development}, 2010, saatavilla WWW-muodossa
-<URL: \texttt{http://behaviour-driven.org/Introduction}>, viitattu 27.01.2013
+<URL: \texttt{http://behaviour-driven.org/Introduction}>, viitattu 27.01.2013.
 
 \bibitem{ibm}
 IBM developerWorks: http://www.ibm.com/developerworks/java/library/j-cq09187/index.html
