@@ -26,7 +26,7 @@
 \setauthor{Samppa}{Hynninen}
 \yhteystiedot{samppa.hynninen@jyu.fi}
 
-\setdate{24}{03}{2014}
+\setdate{31}{03}{2014}
 
 \tiivistelma{Tähän tulee tutkielman tiivistelmä.}
 \abstract{Here comes the abstract of the thesis.}
@@ -185,7 +185,7 @@ Yksinkertaistettuna testivetoisessa ohjelmistokehityksessa ideana on se, että te
 \item Aloitetaan prosessi alusta.
 \end{itemize}
 
-TDD:n voidaan katsoa edistävän työskentelyn tehokkuutta ainakin neljästä eri näkökulmasta \cite{tddeff}. Ensiksikin kehittäjä saa jatkuvaa palautetta työstään viiveettä. Hän näkee heti toimiiko tekemänsä koodi oikein ja rikkooko se mahdollisesti muita toiminnallisuuksia ja niiden testejä. Tällöin kehittäjä pystyy heti korjaamaan virheensä, eikä niitä ehdi kasaantua kerralla paljoa.
+TDD:n voidaan katsoa edistävän työskentelyä ainakin neljästä eri näkökulmasta \cite{tddeff}. Ensiksikin kehittäjä saa jatkuvaa palautetta työstään viiveettä. Hän näkee heti toimiiko tekemänsä koodi oikein ja rikkooko se mahdollisesti muita toiminnallisuuksia ja niiden testejä. Tällöin kehittäjä pystyy heti korjaamaan virheensä, eikä niitä ehdi kasaantua kerralla paljoa.
 
 Samalla tämä yhteen metodiin keskittyminen kerrallaan ohjaa ja jaksottaa kehittäjän työskentelyä. Tämä tarkoittaa sitä, että kehittäjä keskittyy yhteen tehtävään kerrallaan, kunnes saa valmiiksi toimivan testatun kokonaisuuden. Tämän myötä kehittäjien on välttämätöntä myös pilkkoa työtään pienempiin osiin siten, että tällainen tehtävä kerrallaan läpiviety kehitys on edes mahdollista \cite{tddeff}. Kun tehtävät pilkotaan riittävän pieniksi, kehittäjien on helpompi arvioida niihin kuluvaa aikaa, heillä on parempi käsitys siitä, mitä jonkin asian valmistuminen vielä vaatii ja he kykenevät hallitsemaan omia työn alla olevia töitään helpommin.
 
@@ -193,7 +193,9 @@ Kolmantena TDD tarjoaa omalta osaltaan yhden keinon laadunvarmistukseen. Kun ohj
  
 Viimeiseksi TDD:ssä keskitytään ennen kaikkea matalalla tasolla koodin testaamiseen. Kun liikutaan yksittäisten metodien tasolla, on ohjelmoijalla usein hyvä näkemys siitä, mitä kirjoitettavan metodin olisi tarkoitus tehdä. Tällöin koodin laatu paranee ainakin tällä matalalla tasolla, mutta TDD ei ota kantaa, eikä auta ohjelmoijaa ymmärtämään korkeamman tason toiminnallisia vaatimuksia tai suurempia kokonaisuuksia \cite{tdd}. Tähän ongelmaan ratkaisuksi on lähivuosina kehitetty toimintatapoja, joilla pystytään hallitsemaan paremmin edellämainittujen korkeamman tason vaatimusten täyttymistä. Näitä menetelmiä ovat muun muassa Acceptance Test-Driven Development (ATDD) sekä Behaviour-Driven Development (BDD), joita käsitellään tarkemmin jäljempänä.
 
-Vuonna 2005 julkaistussa julkaisussa \cite{tddeff} tutkittiin myös TDD:n vaikutusta tuottavuuteen.
+Vuonna 2005 julkaistussa tutkimuksessa \cite{tddeff} suurimpana kysymyksenä oli selvittää TDD:n vaikutusta tuottavuuteen. Tutkimuksessa todettiin testilähtöisen kehityksen todella lisäävän kehittäjien tuottavuutta. Tähän löydettiin tutkimuksessa \cite{tddeff} useita syitä. Yksi näistä oli jo edelläkin mainittu tehtävien pilkkominen ja sen myötä niihin keskittyminen. Näillä toimenpiteillä tehtävät ovat helpommin ymmärrettäviä kokonaisuuksia, jotka voidaan helposti toteuttaa kerralla. Tutkimus myös toteaa \cite{tddeff}, että testivetoisessa kehityksessä huonot ja tehottomat toimintatavat hylätään verrattain nopeasti ja ne korvataan paremmilla. Useimmissa prosessimalleissa tällaiset päätökset tekevät kehittäjät itse, eli näitä parannuksia ei osoiteta mistään ylemmältä taholta. Esimerkiksi Scrumissa kehitystiimi itse käy jokaisen sprintin jälkeen retrospektiivissa läpi omaa toimintaansa ja yrittää löytää siitä kehityskohteita \cite{scrumguide}. Tämä jatkuva toimintatapojen tehostaminen johtaa myös nopeaan oppimiseen. TDD laskee myös kynnystä asioiden uudelleen tekemiselle ja refaktoroinnille \cite{tddeff}. Kun ohjelmisto on toteutettu pienistä erikseen testatuista osista, on helppoa lähteä korjaamaan yhtä hajonnutta testiä, sillä hajoamisen syy on usein helppo löytää, kun testi kattaa vain yhden pienen osan ohjelmistosta, esimerkiksi yhden metodin, jonka tehtävän pitäisi olla helposti selitettävä.
+
+Kaikenkaikkiaan vuoden 2005 tutkimuksessa \cite{tddeff} päädyttiin tulokseen, jonka mukaan testivetoinen kehitys todellakin parantaa työn tuottavuutta edellämainittujen seikkojen myötä. Samalla tutkimuksessa kuitenkin todetaan, että testivetoinen ohjelmistokehitys ei suoranaisesti paranna ohjelmistojen laatua. Tämä johtui siitä, että vaikka ohjelmistokehittäjät kirjoivat TDD:tä käyttäessään määrällisesti enemmän testejä, testien laatu riippui hyvin paljon kehittäjän kokemuksesta tehdä töitä testivetoisesti \cite{tddeff}. Toisaalta myös matalan tason yksikkötesteistä saatavan hyödyn voitiin katsoa häviävän siinä, että kehittäjät pystyivät monissa tilanteissa ohjelmaa tarkastelemaal helposti toteamaan saman asian kuin mitä yksikkötesti testaa \cite{tddeff}.
 
 \begin{figure}
 \centering
