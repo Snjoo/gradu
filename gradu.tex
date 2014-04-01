@@ -26,7 +26,7 @@
 \setauthor{Samppa}{Hynninen}
 \yhteystiedot{samppa.hynninen@jyu.fi}
 
-\setdate{31}{03}{2014}
+\setdate{01}{04}{2014}
 
 \tiivistelma{Tähän tulee tutkielman tiivistelmä.}
 \abstract{Here comes the abstract of the thesis.}
@@ -52,6 +52,7 @@ Tämän pro gradu -tutkielman tavoitteena on kartoittaa behaviour-driven developme
 \section{Termejä}
 \begin{itemize}
 \item Apache Cordova: Avoimen lähdekoodin ohjelmisto, johon PhoneGap perustuu.
+\item ATDD: Acceptance test-driven development. Hyväksymistestilähtöinen ohjelmistokehitys.
 \item BDD: Behaviour-driven development. Käyttäytymislähtöinen kehitys. Ohjelmistokehitysprosessi, jossa vaatimukset pohjautuvat ohjelmiston käyttäytymiseen.
 \item CI: Continuous Integration, jatkuva integraatio.
 \item Cucumber: Rubylla kirjoitettu BDD-testikehys.
@@ -66,7 +67,15 @@ Tämän pro gradu -tutkielman tavoitteena on kartoittaa behaviour-driven developme
 \end{itemize}
 
 \section{Aikaisemmat tutkimukset}
-Aikaisempaa tieteellistä tutkimusta Behaviour-driven developmentista on tehty verrattain vähän, sillä aihepiiri on niin tuore. Terminä BDD on tullut käyttöön ensimmäisiä kertoja vasta 2000-luvun puolivälissä erirtyisesti Dan Northin blogitekstien myötä \cite{bddintro}. Täten voidaan laskea BDD:n olevan käsitteenäkin vasta noin kymmenen vuoden ikäinen. 
+Aikaisempaa tieteellistä tutkimusta Behaviour-driven developmentista on tehty verrattain vähän, sillä aihepiiri on niin tuore. Terminä BDD on tullut käyttöön ensimmäisiä kertoja vasta 2000-luvun puolivälissä erirtyisesti Dan Northin blogitekstien myötä \cite{bddintro}. Täten voidaan laskea BDD:n olevan käsitteenäkin vasta noin kymmenen vuoden ikäinen.
+
+Hakiessani lähteitä ja aikaisempia tutkimuksia BDD:n aihepiireistä käytin pääasiallisesti suurimpia tietokantoja etsimiseen. Näitä olivat ACM Digital Library, IEEE Xplore, Google Scholar. Aloitin haut tekemällä muutamia avainsanahakuja \cite{tutkimuspaska} eri tietokantoihin. Termillä ``bdd'' tehdyt haut eivät tuottaneet juuri mistään kannasta toivottuja tuloksia, sillä lyhennettä ilmeisesti käytetään monilla muillakin tieteenaloilla tarkoittamaan eri asiaa. Avainsanahaussa hakusanat ``behaviour driven development'' tuottivat jo selvästi paremman tuloksen. Google Scholar palautti kyselyllä noin 250 tulosta, joista suuri osa oli relevantteja. IEEE Xploresta ei samoilla hakutermeillä ja sen variaatioilla palautunut kuin kaksi eri julkaisua. ACM:n hausta termeillä ja niiden muutamalla variaatiolla (esim. ``behavior driven development'') palautui noin kaksikymmentä tulosta.
+
+Hauilla löytyneet tutkimukset pystyi karkeasti jakamaan muutamaan eri luokkaan. Ensimmäiseen ryhmään kuuluvissa tutkimuksissa keskityttiin lähinnä määrittelemään Behaviour-driven developmentia ja ylipäänsä siihen liittyvää termistöä. Näissä tutkimuksissa ja lähteissä aihepiiri oli ikäänkuin uusi ja vielä vakiintumaton. Toisen pääteeman löytyneissä tutkimuksissa muodostavat lähteet, joissa BDD:n tehokkuutta ja sopivuutta on tutkittu eri tilanteissa. Tähän teemaan lukeutuvat myös tutkimukset, joissa BDD:n menetelmiä sovelletaan jollekin tietylle toimialalle.
+
+Sopivimmille artikkeleille tein lisähakuja käyttäen ``Backward search''-menetelmää \cite{tutkimuspaska}, jossa kävin läpi löytyneiden tutkimusten lähteitä. Tällä tavoin löytyi muutamia lähteitä, jotka esiintyivät hyvin monissa BDD:hen liittyvissä tutkimuksissa. Näitä olivat esimerkiksi Dan Northin tekstit \cite{bddintro}, Gojko Adzicin kirjat \cite{bridging},\cite{specification} sekä esimerkiksi Cucumber-kirja \cite{cucumber}. Samanlaisia tuloksia löytyi, kun kävin lähteille läpi vielä ``Backward search''-menetelmää, mutta tällä kertaa keskittyen kirjoittajiin, eli tutkin kirjoittajien muita teoksia.
+
+Näiden hakujen myötä päädyin käyttämään lähteinä erityisesti usein esilletulleita teoksia, kuten Adzicin kirjat, Cucumber-kirja sekä Dan Northin kirjoitukset. Tämän lisäksi mukaan valikoitui kirjoittaessa jatkuvasti uusia lähteitä, joita löytyi ennen kaikkea tekemällä ``Backward search''-hakuja aineistolle.
 
 \section{Tutkimusmenetelmistä}
 Tutkimus on toteutettu käyttäen konstruktiivista tutkimusotetta.
@@ -264,6 +273,10 @@ Yhteenveto tähän
 
 \begin{thebibliography}{9} % numero aaltosuluissa kertoo, miten paljon
                            % varataan tilaa viitenumerolle
+
+\bibitem{tutkimuspaska}
+Levy, Y. \& Ellis, T. J. \textit{A Systems Approach to Conduct an Effective Literature Review in Support of Information Systems Research},
+Informing Science Journal, 9, 2006.
 
 \bibitem{iterative}
 Craig Larman ja Victor Basili, \textit{Iterative and incremental developments. a brief history},
