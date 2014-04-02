@@ -26,7 +26,7 @@
 \setauthor{Samppa}{Hynninen}
 \yhteystiedot{samppa.hynninen@jyu.fi}
 
-\setdate{01}{04}{2014}
+\setdate{02}{04}{2014}
 
 \tiivistelma{Tähän tulee tutkielman tiivistelmä.}
 \abstract{Here comes the abstract of the thesis.}
@@ -78,7 +78,13 @@ Sopivimmille artikkeleille tein lisähakuja käyttäen ``Backward search''-menetelm
 Näiden hakujen myötä päädyin käyttämään lähteinä erityisesti usein esilletulleita teoksia, kuten Adzicin kirjat, Cucumber-kirja sekä Dan Northin kirjoitukset. Tämän lisäksi mukaan valikoitui kirjoittaessa jatkuvasti uusia lähteitä, joita löytyi ennen kaikkea tekemällä ``Backward search''-hakuja aineistolle.
 
 \section{Tutkimusmenetelmistä}
-Tutkimus on toteutettu käyttäen konstruktiivista tutkimusotetta.
+Tutkimus on toteutettu käyttäen konstruktiivista tutkimusotetta. Konstruktiivisessa tutkimusotteessa tavoitteena on rakentaa jonkinlainen artefakti, joka ratkaisee jonkin tietyn alan kysymyksen ja tätä kautta lisää tietoa ongelmasta ja sen ratkaisusta alalla \cite{constructive}. Tutkielmassani yritän löytää ratkaisua kysymykseen, voidaanko tämänhetkisten modernien mobiilialustojen ohjelmistoja testata tehokkaasti käyttäen Behaviour-driven developmentin toimintatapoja.
+
+Tutkimuskysymykseen vastatakseni tutkimuksessa kartoitetaan ensiksi millaisia BDD-työkaluja mobiilialustoille on nykyään saatavilla. Tutkimuksessani käytettävät alustat olen rajannut kattamaan kolme suosituinta alustaa Gartnerin tutkimuksen pohjalta (Q4/2013) \cite{marketshare}. Kolme mukaan otettua alustaa olivat Googlen Android, Applen iOS ja Microsoftin Windows Phone. Tämän jälkeen tehtävänä oli kartoittaa valituille alustoille tällä hetkellä olemassa olevia BDD:n mahdollistavia ratkaisuja. Löydettyjä ratkaisuja käydään läpi luvussa \ref{chap:platforms}.
+
+Olemassa olevien ratkaisuiden kartoittamisen myötä tutkielmassa tutkittiin onko mahdollisesti jo olemassa BDD-testikehyksiä, joilla voidaan testata kerralla useita eri alustoja. Samalla tutkittiin onko eri mobiilialustoille löydettävissä sellaisia BDD-testikehyksiä, joiden käyttämä luonnollinen kieli toimisi niin, että samoilla luonnollisella kielellä kirjoitetuilla testeillä voisi ainoastaan eri testikehysten kieltä jäsentävää ohjelmakoodia muokkaamalla saada samat testit toimimaan eri testikehyksillä.
+
+Tämän jälkeen tutkimuksessa käydään vielä läpi erikseen ratkaisu ongelmaan, kun kyseessä ovat natiivisovellusten sijaan HTML5-sovellukset, sillä näiden kohdalla testaus voidaan suorittaa eri tavalla. Tutkimuksessa kartoitetaan HTML5-sovellusten testaamista sekä käydään läpi ratkaisuja, joilla HTML5-sovelluksia voidaan paketoida helposti eri alustoja varten ja näin ollen saavuttaa samat edut BDD:llä kuin natiivisovellusten kohdalla. Tästä muodostetaan oma ratkaisunsa täydentämään natiivisovellusten testaukseen löytyneitä ratkaisuja.
 
 \chapter{Ketterä ohjelmistokehitys}
 
@@ -258,6 +264,7 @@ Kumpikin malli kuitenkin tuottaa erittäin hyvää dokumentaatiota järjestelmästä i
 \section{HTML5-sovellukset}
 
 \chapter{Crossplatform-testaaminen eri mobiilialustoilla}
+\label{chap:platforms}
 
 \section{iOS BDD-frameworkit}
 
@@ -277,6 +284,14 @@ Yhteenveto tähän
 \bibitem{tutkimuspaska}
 Levy, Y. \& Ellis, T. J. \textit{A Systems Approach to Conduct an Effective Literature Review in Support of Information Systems Research},
 Informing Science Journal, 9, 2006.
+
+\bibitem{constructive}
+Gordana Dodig Crnkovic \textit{Constructive Research and Info-Computational Knowledge Generation},
+School of Innovation, Design and Engineering, Computer Science Laboratory, Mälardalen University, Sweden
+
+\bibitem{marketshare}
+\textit{Gartner Smart Phone Marketshare 2013 Q4}, Gartner, Inc., 2013, saatavilla WWW-muodossa
+<URL: \texttt{http://www.gartner.com/newsroom/id/2665715}, viitattu 02.04.2014.
 
 \bibitem{iterative}
 Craig Larman ja Victor Basili, \textit{Iterative and incremental developments. a brief history},
