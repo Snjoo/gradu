@@ -248,6 +248,23 @@ Kumpikin malli kuitenkin tuottaa eritt‰in hyv‰‰ dokumentaatiota j‰rjestelm‰st‰ i
 \chapter{Behaviour-driven development}
 
 \section{BDD:n l‰htˆkohdat ohjelmistokehityst‰ tukevana menetelm‰n‰}
+BDD, eli Behaviour-driven development, on nimens‰ mukaisesti ohjelmistokehityksen malli, jossa ohjelmistojen kehityksen l‰htˆkohtana on niiden k‰ytt‰ytyminen \cite{bddintro}. Toisin kuin edell‰ k‰sitellyss‰ ATDD:ss‰, voidaan BDD:n painottavan enemm‰n kommunikaation merkityst‰ sidosryhmien v‰lill‰ kuin vain automaattisten hyv‰ksymistestien luontia. Yksi keinoista, joilla monissa BDD-testikehyksiss‰ parannetaan kommunikaatiota ja yhteisymm‰rryst‰ eri sidosryhmien, kuten ohjelmistokehitt‰jien ja toimialan asiantuntijoiden v‰lill‰, on l‰hell‰ luonnollista kielt‰ oleva kieli, jolla testej‰ m‰‰ritell‰‰n \cite{cucumberbook}. Esimerkiksi seuraavanlaisella muotoilulla voidaan m‰‰ritell‰ testiskenaario Cucumber-testikehyksess‰ \cite{cucumber}:
+
+\begin{verbatim}
+Feature: Generation
+  In order to finish the thesis
+  As a student
+  I want to generate good BDD-examples
+
+  Scenario: Generate example of behaviour
+    Given I have program running
+    When I press generate
+    Then the result should be an example behaviour on the screen
+\end{verbatim} 
+
+Kuten skenaarion muotoilusta voidaan n‰hd‰, BDD:ss‰ testataan ennen kaikkea sit‰, toimiiko ohjelmisto oikein ja halutulla tavalla, eli sen k‰ytt‰ytymist‰. Verrattuna TDD:n matalan tason testeihin, joissa keskityt‰‰n yhden metodin toimintaan kerrallaan, ero on merkitt‰v‰. Yksi merkitt‰vist‰ asioista, joiden avulla BDD:ll‰ voidaan ohjata ohjelmistokehitysprosessia on tapa, jossa toimintojen tuottama lis‰arvo otetaan huomioon. T‰llˆin eniten lis‰arvoa tuottavia ominaisuuksia voidaan ensimm‰isen‰ l‰htea kehitt‰m‰‰n ja niille voidaan luoda BDD-testit, jotka nimet‰‰n sen mukaan, mit‰ j‰rjestelm‰n halutaan tekev‰n \cite{bddintro}.
+
+Monilta osin BDD perustuu Test-driven developmentin parhaisiin k‰yt‰nteisiin ja samalla BDD:n tarkoituksena on formalisoida niit‰ \cite{cucumberbook}. TDD:n voidaankin ajatella auttavan kehitt‰ji‰ toteuttamaan ratkaisun oikein, kun taas ATDD ja BDD auttavat kehitt‰ji‰ toteuttamaan oikean ratkaisun \cite{cucumberbook}.
 
 \section{Teknologioista}
 
@@ -378,9 +395,9 @@ Neuri Limited, 2009.
 Susan Hammond ja David Umphress, \textit{Test driven development: the state of the practice},
 ACM-SE '12 Proceedings of the 50th Annual Southeast Regional Conference, s. 158-163, 2012.
 
-\bibitem{bddintro2}
-Chris Rimmer, \textit{Introduction, Behaviour-Driven Development}, 2010, saatavilla WWW-muodossa
-<URL: \texttt{http://behaviour-driven.org/Introduction}>, viitattu 27.01.2013.
+\bibitem{tddbdd}
+Liz Keogh, \textit{Translating TDD to BDD}, 2009, saatavilla WWW-muodossa
+<URL: \texttt{http://lizkeogh.com/2009/11/06/translating-tdd-to-bdd/}, viitattu 03.04.2014.
 
 \bibitem{ibm}
 IBM developerWorks: http://www.ibm.com/developerworks/java/library/j-cq09187/index.html
