@@ -264,9 +264,52 @@ Feature: Generation
 
 Kuten skenaarion muotoilusta voidaan nähdä, BDD:ssä testataan ennen kaikkea sitä, toimiiko ohjelmisto oikein ja halutulla tavalla, eli sen käyttäytymistä. Verrattuna TDD:n matalan tason testeihin, joissa keskitytään yhden metodin toimintaan kerrallaan, ero on merkittävä. Yksi merkittävistä asioista, joiden avulla BDD:llä voidaan ohjata ohjelmistokehitysprosessia on tapa, jossa toimintojen tuottama lisäarvo otetaan huomioon. Tällöin eniten lisäarvoa tuottavia ominaisuuksia voidaan ensimmäisenä lähtea kehittämään ja niille voidaan luoda BDD-testit, jotka nimetään sen mukaan, mitä järjestelmän halutaan tekevän \cite{bddintro}.
 
-Monilta osin BDD perustuu Test-driven developmentin parhaisiin käytänteisiin ja samalla BDD:n tarkoituksena on formalisoida niitä \cite{cucumberbook}. TDD:n voidaankin ajatella auttavan kehittäjiä toteuttamaan ratkaisun oikein, kun taas ATDD ja BDD auttavat kehittäjiä toteuttamaan oikean ratkaisun \cite{cucumberbook}. 
+Monilta osin BDD perustuu Test-driven developmentin parhaisiin käytänteisiin ja samalla BDD:n tarkoituksena on formalisoida niitä \cite{cucumberbook}. TDD:n voidaankin ajatella auttavan kehittäjiä toteuttamaan ratkaisun oikein, kun taas ATDD ja BDD auttavat kehittäjiä toteuttamaan oikean ratkaisun \cite{cucumberbook}. Sekä TDD:stä, että BDD:stä kummastakin löytyy komponentit, joilla on helppo selventää eroja näiden kahden menetelmän välillä. Siinä missä TDD:ssä keskitytään testeihin, joilla testataan yhtä luokkaa ja sen metodien toimintaa, BDD:ssä vastaava komponentti on esimerkki, jolla kuvaillaan yhden luokan toivottua käyttäytymistä \cite{tddbdd}. Siinä missä TDD:ssä testien odotetaan menevän läpi, BDD:ssä halutaan ohjelmiston käyttäytyvän oikein. BDD:ssä testeillä varmistetaan, että toiminnallisuus on oikea, eli tuottaa mahdollisimman paljon arvoa asiakkaalle, kun TDD:ssä testit testaavat toiminnallisuutta vain matalalla tasolla \cite{tddbdd}, eivätkä ne ota asiakkaan tarpeita niinkään huomioon.
 
 \section{Teknologioista}
+Behaviour-driven developmentia varten on olemassa useita eri testikehyksiä, jotka soveltuvat eri tarkoituksiin. Eräitä esimerkkejä näistä ovat Cucumber \cite{cucumber}, Jasmine \cite{jasmine}, Specflow \cite{specflow} ja RSpec \cite{rspec}. Mainittujen testikehysten suurin ero on alustat, joita ne tukevat. Jasmine on JavaScript-ohjelmointikielelle tehty testikehys, kun taas SpecFlow on ratkaisu Microsoftin .NET-alustan BDD-testaamiseen. Cucumber ja RSpec pohjautuvat molemmat Ruby-ohjelmointikieleen, mutta ne poikkeavat toisistaan kuitenkin muuten varsin paljon. Siinä missä RSpec on ainoastaan Rubya tukeva kehys, jolla voidaan toteuttaa niin TDD- kuin BDD-testaustakin, niin Cucumber kehyksenä korostaa erityisesti määrittelyjen luettavuutta ja ymmärrettävyyttä. RSpec ei tarjoa mahdollisuutta määritellä erikseen lähellä selkokieltä olevia kuvauksia käyttäytymisestä, kuten Cucumberissa, vaan siinä koko testi on yhdessä yksittäisessä tiedostossa. Tällöin luettavuusero on varsin merkittävä, kun otetaan huomioon BDD:n lähtökohta kommunikaation parantajana:
+
+RSpec:
+\begin{verbatim}
+# example_spec.rb
+
+require 'spec_helper'
+describe "exampletest" do
+  it "should have a page titled Example at '/example'" do
+   get '/example'
+   response.should have_xpath("//title", :text => "Example")
+ end
+end
+\end{verbatim} 
+
+Vastaavasti Cucumberissä on erillisessä feature-tiedostossa määritelty luonnollisen kaltaisella kielellä eri skenaariot, joiden mukaan ohjelman halutaan toimivan. Tämän lisäksi on sitten erillinen Rubylla kirjoitettu tiedosto, jossa määritellään, mitä feature-tiedostossa käytetyt stepit tekevät. Tässä siis selvästi erotellaan liiketoiminnan kannalta tärkeät määrittelyt erikseen lähes selkokieliseen muotoon, jolloin niiden tulkinta on verrattain helpompaa kuin esimerkiksi RSpecin tapauksessa suoraan Ruby-koodin lukeminen. Edellä esitellyn RSpec-testin kaltainen testi Cucumberilla voitaisiin toteuttaa esimerkiksi seuraavalla tavalla:
+
+Cucumber:
+\begin{verbatim}
+# example.feature
+
+Scenario: As a user I want to see correct page title
+  Given I am on the home page
+  When I go to example page
+  Then I should be on the page with the title: "Example" 
+
+# example_steps.rb
+
+Given /^I am on the home page$/ do
+  visit '/'
+end
+
+When /^I go to the example page$/ do
+  visit '/example'
+end
+
+Then /^I should be on the page with the title: "([^"]*)"$/
+do |page_title|
+  response.should have_xpath("//title", :text => "#{page_title}")
+end
+\end{verbatim}
+
+Esimerkeistä voidaan huomata
 
 \chapter{BDD:n tarjoamat liiketoiminnalliset edut}
 
@@ -385,7 +428,7 @@ Børge Haugset ja Tor Stålhane, \textit{Automated Acceptance Testing as an Agile 
 
 \bibitem{difference}
 \textit{What is TDD, BDD \& ATDD?}, 2012, saatavilla WWW-muodossa
-<URL: \texttt{http://assertselenium.com/2012/11/05/difference-between-tdd-bdd-atdd/}, viitattu 31.03.2014.
+<URL: \texttt{http://assertselenium.com/2012/11/05/difference-between-tdd-bdd-atdd/}>, viitattu 31.03.2014.
 
 \bibitem{bridging}
 Gojko Adzic, \textit{Bridging the Communication Gap, Specification by Example and Agile Acceptance Testing},
@@ -397,7 +440,19 @@ ACM-SE '12 Proceedings of the 50th Annual Southeast Regional Conference, s. 158-
 
 \bibitem{tddbdd}
 Liz Keogh, \textit{Translating TDD to BDD}, 2009, saatavilla WWW-muodossa
-<URL: \texttt{http://lizkeogh.com/2009/11/06/translating-tdd-to-bdd/}, viitattu 03.04.2014.
+<URL: \texttt{http://lizkeogh.com/2009/11/06/translating-tdd-to-bdd/}>, viitattu 03.04.2014.
+
+\bibitem{jasmine}
+\textit{Jasmine: Behavior-Driven JavaScript}, saatavilla WWW-muodossa
+<URL: \texttt{http://jasmine.github.io/}>, viitattu 07.04.2014.
+
+\bibitem{specflow}
+\textit{SpecFlow - Pragmatic BDD for .NET}, saatavilla WWW-muodossa
+<URL: \texttt{http://www.specflow.org/}>, viitattu 07.04.2014.
+
+\bibitem{rspec}
+\textit{RSpec.info}, saatavilla WWW-muodossa
+<URL: \texttt{http://rspec.info/}>, viitattu 07.04.2014.
 
 \bibitem{ibm}
 IBM developerWorks: http://www.ibm.com/developerworks/java/library/j-cq09187/index.html
