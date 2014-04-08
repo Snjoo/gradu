@@ -309,7 +309,20 @@ do |page_title|
 end
 \end{verbatim}
 
-Esimerkeistä voidaan huomata
+Esimerkeistä voidaan huomata, kuinka Cucumberilla esimerkkiskenaariosta tulee paljon helpommin luettava henkilöille, jotka eivät ole teknisesti orientoituneita. Siinä missä RSpec-testissä samaan tiedostoon on määritetty testin kuvaus kuin sen toiminnalisuuskin, niin Cucumberissa testi on selvästi erikseen kuvattu feature-tiedostossa, jolloin eri sidosryhmien edustajat voivat keskittyä vain sen sisältöön, eikä tekninen aineisto, eli eri steppien määritykset, ole sekoittamassa asiaan perehtymätöntä henkilöä.
+
+Yhteistä lähes kaikille BDD-testikehyksille on niiden käyttämä testitapausten muoto yleisellä tasolla. Dan North esittelee tämän muodon Behaviour-driven developmentin konseptia esittelevässä blogitekstissään \cite{bddintro}. Perinteinen pohja käyttäjätarinoille koostuu usein jotakuinkin seuraavanlaisista osista:
+\begin{itemize}
+\item Roolissa A
+\item Haluan tehdä asian B
+\item Jotta tapahtuu asia C
+\end{itemize}
+Tämä kyseisenlainen pohja toimii myös Northin määrittelemän testitapausten muodon pohjana. Tästä mallista North kehitti uuden mallin, jonka avulla voidaan käyttäjätarinat kirjoittaa suoraan hyväksyntätestien muotoon.
+\begin{itemize}
+\item Given (what is known / done before)
+\item When (something is done)
+\item Then (something happens)
+\end{itemize} 
 
 \chapter{BDD:n tarjoamat liiketoiminnalliset edut}
 
