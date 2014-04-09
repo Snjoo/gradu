@@ -26,7 +26,7 @@
 \setauthor{Samppa}{Hynninen}
 \yhteystiedot{samppa.hynninen@jyu.fi}
 
-\setdate{02}{04}{2014}
+\setdate{09}{04}{2014}
 
 \tiivistelma{T‰h‰n tulee tutkielman tiivistelm‰.}
 \abstract{Here comes the abstract of the thesis.}
@@ -267,6 +267,7 @@ Kuten skenaarion muotoilusta voidaan n‰hd‰, BDD:ss‰ testataan ennen kaikkea sit‰
 Monilta osin BDD perustuu Test-driven developmentin parhaisiin k‰yt‰nteisiin ja samalla BDD:n tarkoituksena on formalisoida niit‰ \cite{cucumberbook}. TDD:n voidaankin ajatella auttavan kehitt‰ji‰ toteuttamaan ratkaisun oikein, kun taas ATDD ja BDD auttavat kehitt‰ji‰ toteuttamaan oikean ratkaisun \cite{cucumberbook}. Sek‰ TDD:st‰, ett‰ BDD:st‰ kummastakin lˆytyy komponentit, joilla on helppo selvent‰‰ eroja n‰iden kahden menetelm‰n v‰lill‰. Siin‰ miss‰ TDD:ss‰ keskityt‰‰n testeihin, joilla testataan yht‰ luokkaa ja sen metodien toimintaa, BDD:ss‰ vastaava komponentti on esimerkki, jolla kuvaillaan yhden luokan toivottua k‰ytt‰ytymist‰ \cite{tddbdd}. Siin‰ miss‰ TDD:ss‰ testien odotetaan menev‰n l‰pi, BDD:ss‰ halutaan ohjelmiston k‰ytt‰ytyv‰n oikein. BDD:ss‰ testeill‰ varmistetaan, ett‰ toiminnallisuus on oikea, eli tuottaa mahdollisimman paljon arvoa asiakkaalle, kun TDD:ss‰ testit testaavat toiminnallisuutta vain matalalla tasolla \cite{tddbdd}, eiv‰tk‰ ne ota asiakkaan tarpeita niink‰‰n huomioon.
 
 \section{Teknologioista}
+\subsection{Yleist‰ teknologioista}
 Behaviour-driven developmentia varten on olemassa useita eri testikehyksi‰, jotka soveltuvat eri tarkoituksiin. Er‰it‰ esimerkkej‰ n‰ist‰ ovat Cucumber \cite{cucumber}, Jasmine \cite{jasmine}, Specflow \cite{specflow} ja RSpec \cite{rspec}. Mainittujen testikehysten suurin ero on alustat, joita ne tukevat. Jasmine on JavaScript-ohjelmointikielelle tehty testikehys, kun taas SpecFlow on ratkaisu Microsoftin .NET-alustan BDD-testaamiseen. Cucumber ja RSpec pohjautuvat molemmat Ruby-ohjelmointikieleen, mutta ne poikkeavat toisistaan kuitenkin muuten varsin paljon. Siin‰ miss‰ RSpec on ainoastaan Rubya tukeva kehys, jolla voidaan toteuttaa niin TDD- kuin BDD-testaustakin, niin Cucumber kehyksen‰ korostaa erityisesti m‰‰rittelyjen luettavuutta ja ymm‰rrett‰vyytt‰. RSpec ei tarjoa mahdollisuutta m‰‰ritell‰ erikseen l‰hell‰ selkokielt‰ olevia kuvauksia k‰ytt‰ytymisest‰, kuten Cucumberissa, vaan siin‰ koko testi on yhdess‰ yksitt‰isess‰ tiedostossa. T‰llˆin luettavuusero on varsin merkitt‰v‰, kun otetaan huomioon BDD:n l‰htˆkohta kommunikaation parantajana:
 
 RSpec:
@@ -319,10 +320,27 @@ Yhteist‰ l‰hes kaikille BDD-testikehyksille on niiden k‰ytt‰m‰ testitapausten mu
 \end{itemize}
 T‰m‰ kyseisenlainen pohja toimii myˆs Northin m‰‰rittelem‰n testitapausten muodon pohjana. T‰st‰ mallista North kehitti uuden mallin, jonka avulla voidaan k‰ytt‰j‰tarinat kirjoittaa suoraan hyv‰ksynt‰testien muotoon.
 \begin{itemize}
-\item Given (what is known / done before)
+\item Given (what is known/done beforehand)
 \item When (something is done)
 \item Then (something happens)
-\end{itemize} 
+\end{itemize}
+T‰llaista Given-When-Then -muotoa k‰ytt‰v‰‰ suuri osa BDD-testikehyksist‰ testiens‰ m‰‰ritt‰miseen. Poikkeuksiakin toki on, esimerkiksi aiemmin esimerkkin‰ ollut RSpec-testikehys Rubylle \cite{rspec}, jossa ei ole erikseen m‰‰rittelyj‰ testitapauksille, vaan kaikki sis‰ltˆ lˆytyy koodin seasta. Esimerkiksi seuraavasta RSpec-testist‰ voidaan lˆyt‰‰ vastaavat osat:
+\begin{verbatim}
+require 'spec_helper'
+
+describe Example do
+  it "is not valid without a title" do
+    example = Example.new(title: nil)
+    example.should_not be_valid
+  end
+end
+\end{verbatim}
+T‰ss‰ voidaan ajatella, ett‰ pohjatietona, eli Given-osiona olisi tilanne, jossa on mahdollista luoda uusi Example. When-kohtana olisi Example.new(title: nil) eli luodaan uusi Example. T‰llˆin odotetaan tuloksena, ett‰ uusi Example ei olisi validi, mik‰ vastaisi siis Then-kohtaa Dan Northin muodossa. Voidaan kuitenkin mietti‰, onko v‰ltt‰m‰tt‰ hyˆdyllist‰ yritt‰‰ puristaa jokaista testikehyst‰ ennaltam‰‰ritettyyn muotoon, sill‰ RSpec poikkeaa muista kehyksist‰ muutenkin verrattain paljon sen tarjotessa mahdollisuudet laajemminkin testivetoiseen kehitykseen Rubylla kuin vain BDD:n toiminnallisuuksia.
+
+Muista testikehyksist‰ esimerkiksi Cucumber \cite{cucumberbook} k‰ytt‰‰ t‰ysin Dan Northin m‰‰rittelem‰‰ muotoa \cite{bddintro} testeilleen, kun taas JavaScript-testikirjasto Jasminen \cite{jasmine} ratkaisu on hyvin samanlainen kuin RSpecin ratkaisu, eli Jasminessakaan ei ole erikseen m‰‰ritelty luonnollisella kielell‰ testej‰ erikseen. Specflow \cite{specflow}, joka on testikehys .NET, Windows Phone ja Mono-alustoille, on sen sijaan toteutettu vastaamaan Dan Northin m‰‰rittelem‰‰ mallia, eli Given-When-Then -malliset m‰‰ritykset testiesimerkeille toteutetaan siin‰ erikseen ja n‰ille m‰‰rityksille ohjelmoidaan tulkit, joilla m‰‰ritell‰‰n mit‰ testit tekev‰t.
+
+\subsection{Parsereista}
+Yksi t‰rke‰ osa monia BDD-testikehyksi‰ on niiden k‰ytt‰m‰t parserit, joilla tulkitaan 
 
 \chapter{BDD:n tarjoamat liiketoiminnalliset edut}
 
@@ -346,6 +364,8 @@ T‰m‰ kyseisenlainen pohja toimii myˆs Northin m‰‰rittelem‰n testitapausten muodo
 \section{Windows phone BDD-frameworkit}
 
 \section{Mahdollisuudet testata kaikki alustat yhdell‰ testisetill‰}
+
+\chapter{Pohdintaa}
 
 \chapter{Yhteenveto}
 
@@ -467,11 +487,12 @@ Liz Keogh, \textit{Translating TDD to BDD}, 2009, saatavilla WWW-muodossa
 \textit{RSpec.info}, saatavilla WWW-muodossa
 <URL: \texttt{http://rspec.info/}>, viitattu 07.04.2014.
 
+\bibitem{gherkin}
+\textit{Gherkin}, saatavilla WWW-muodossa
+<URL: \texttt{https://github.com/cucumber/gherkin/}, viitattu 09.04.2014.
+
 \bibitem{ibm}
 IBM developerWorks: http://www.ibm.com/developerworks/java/library/j-cq09187/index.html
-
-\bibitem{tech}
-RSpec, Cucumber, JBehave, Robotium, Selenium jne.
 
 \end{thebibliography}
 
