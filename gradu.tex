@@ -340,7 +340,26 @@ T‰ss‰ voidaan ajatella, ett‰ pohjatietona, eli Given-osiona olisi tilanne, jossa
 Muista testikehyksist‰ esimerkiksi Cucumber \cite{cucumberbook} k‰ytt‰‰ t‰ysin Dan Northin m‰‰rittelem‰‰ muotoa \cite{bddintro} testeilleen, kun taas JavaScript-testikirjasto Jasminen \cite{jasmine} ratkaisu on hyvin samanlainen kuin RSpecin ratkaisu, eli Jasminessakaan ei ole erikseen m‰‰ritelty luonnollisella kielell‰ testej‰ erikseen. Specflow \cite{specflow}, joka on testikehys .NET, Windows Phone ja Mono-alustoille, on sen sijaan toteutettu vastaamaan Dan Northin m‰‰rittelem‰‰ mallia, eli Given-When-Then -malliset m‰‰ritykset testiesimerkeille toteutetaan siin‰ erikseen ja n‰ille m‰‰rityksille ohjelmoidaan tulkit, joilla m‰‰ritell‰‰n mit‰ testit tekev‰t.
 
 \subsection{Parsereista}
-Yksi t‰rke‰ osa monia BDD-testikehyksi‰ on niiden k‰ytt‰m‰t parserit, joilla tulkitaan 
+Yksi t‰rke‰ osa monia BDD-testikehyksi‰ on niiden k‰ytt‰m‰t parserit, joilla tulkitaan m‰‰riteltyj‰ testitapauksia ajettavaksi ohjelmakoodiksi. N‰ill‰ parsereilla on kaikilla jokin hyvin m‰‰ritelty syntaksinsa, jota ne ymm‰rt‰v‰t. Yksi parsereista on esimerkiksi avoimen l‰hdekoodin Gherkin \cite{gherkin}, jota k‰ytt‰v‰t Cucumber \cite{cucumber} ja sen sukuiset BDD-testikehykset, kuten esimerkiksi SpecFlow \cite{specflow}. Gherkinin syntaksi on hyvin yksinkertainen, joka edesauttaa sit‰, ett‰ eri sidosryhmien edustajat ymm‰rt‰v‰t ja parhaassa tapauksessa voivat jopa itse luoda uusia testitapauksia. T‰llˆin tarvitaan erityisesti kehitystiimin ja muiden sidosryhmien yhteistyˆt‰, sill‰ t‰ss‰kin tapauksessa kehitystiimin teht‰v‰ksi j‰‰ kirjoittaa testitapauksia vastaava ohjelmakoodi, jotta testitapauksista saadaan toimivia. Seuraavassa on esimerkki Gherkin-dokumentista:
+\begin{verbatim}
+Feature: Software installation
+  Scenario: Uninstall software
+    Given a software named "example" exists
+    When I press uninstall software
+    Then the software named "example" should be removed
+\end{verbatim}
+T‰ss‰ esimerkiss‰ ainoat kohdat, jotka m‰‰ritell‰‰n Gherkinin syntaksissa, ovat kaikilla riveill‰ niiden alut, eli Feature, Scenario, Given, When ja Then \cite{gherkin2}. Kaikki muu sis‰ltˆ, mit‰ testitapaukset sis‰lt‰v‰t, on testien kirjoittajan itse luomaa sis‰ltˆ‰, eli kaikki muut kohdat tulee m‰‰ritell‰ steppien kuvauksissa testikehyksen k‰ytt‰m‰ll‰ ohjelmointikielell‰. Cucumberin tapauksessa t‰m‰ voitaisiin tehd‰ esimerkiksi Rubylla tai jollakin muulla ohjelmointikielell‰, jota Cucumber tukee, kuten esimerkiksi Javalla. Edelt‰v‰n esimerkin Given-kohta voitaisiin m‰‰ritell‰ toimivaksi testiksi esimerkiksi Java-ohjelmointikielt‰ k‰ytt‰en seuraavalla tavalla:
+\begin{verbatim}
+@Given("a software named (.*) exists")
+public void softwareExists(string software) {
+    // T‰ss‰ voitaisiin tehd‰ ohjelmistolla mit‰ tahansa,
+    // esimerkiss‰ halutaan hakea ohjelmistoa
+    // sen nimell‰ SoftwareServicelt‰
+    getSoftwareService.findSoftware(software);
+}
+\end{verbatim} 
+
+Gherkinin ohella monet BDD-testikehykset k‰ytt‰v‰t omia parsereitaan. Esimerkiksi RSpec \cite{rspec} ja Jasmine \cite{jasmine} eiv‰t k‰yt‰ Gherkini‰, vaan niiss‰ on toteutettu omat parserit testien tulkkaamiseen.
 
 \chapter{BDD:n tarjoamat liiketoiminnalliset edut}
 
@@ -489,7 +508,15 @@ Liz Keogh, \textit{Translating TDD to BDD}, 2009, saatavilla WWW-muodossa
 
 \bibitem{gherkin}
 \textit{Gherkin}, saatavilla WWW-muodossa
-<URL: \texttt{https://github.com/cucumber/gherkin/}, viitattu 09.04.2014.
+<URL: \texttt{https://github.com/cucumber/gherkin/}>, viitattu 09.04.2014.
+
+\bibitem{gherkin2}
+\textit{Cukes.info - Gherkin}, saatavilla WWW-muodossa
+<URL: \texttt{http://cukes.info/gherkin.html}>, viitattu 10.04.2014. 
+
+\bibitem{businessdsl}
+Martin Fowler, \textit{BusinessReadableDSL}, saatavilla WWW-muodossa
+<URL: \texttt{http://www.martinfowler.com/bliki/BusinessReadableDSL.html}>, viitattu 10.04.2014.
 
 \bibitem{ibm}
 IBM developerWorks: http://www.ibm.com/developerworks/java/library/j-cq09187/index.html
