@@ -362,8 +362,21 @@ public void softwareExists(string software) {
 Gherkinin sijasta monet BDD-testikehykset käyttävät omia parsereitaan. Esimerkiksi RSpec \cite{rspec} ja Jasmine \cite{jasmine} eivät käytä Gherkiniä, vaan niissä on toteutettu omat parserit testien tulkkaamiseen. Yksi eduista, joita saavutetaan yhden parserin yleisyydellä eri testikehyksissä, on se, että tämä edesauttaa testien uudelleenkäytettävyyttä. Kun eri testikehykset käyttävät samaa parseria, niin samat testimääritykset toimivat niille kaikille. Tämä onkin yksi merkittävä havainto etsittäessä ratkaisua tutkielman tutkimuskysymykseen mobiilialustojen BDD-testaamisesta yhdellä testisetillä. Tätä käsitellään myöhemmin lisää kappaleessa \ref{chap:platforms}.
 
 \chapter{BDD:n tarjoamat liiketoiminnalliset edut}
+Behaviour-driven developmentin voidaan nähdä tarjoavan muitakin hyötyjä sen lisäksi, että se toimii käytännön tapana kehittää ohjelmistoja teknisellä tasolla ohjelmistokehittäjien toimesta. Yksi tärkeimmistä lähtökohdista, joille BDD:n käytänteet on kehitetty, on kommunikaation lisääminen ja parantaminen asiakkaan ja kehitystiimin välillä \cite{specification}. Välillisesti tämän kommunikaation lisäämisen myötä BDD:n käytöllä pyritään toteuttamaan jatkuvasti entistä paremmin oikeita asioita, eli pyritään minimoimaan eri sidosryhmien välisiä näkemyseroja toiminnallisuuksien välillä. Tähän päästään erityisesti sillä, että asiakkaan kanssa yhdessä määritellään testiesimerkkejä ja toiminnallisuuksia \cite{businessdsl}.  
 
 \section{Asiakkaan käyttäjätarinoista hyväksymistesteiksi}
+Kuten edellä mainittiin, on yksi suurimmista BDD:n tarjoamista eduista sen luomat mahdollisuudet työskennellä yhdessä asiakkaan kanssa tuotetun työn arvon maksimoimiseksi. Jos toiminnallisia vaatimuksia määritellään jatkuvasti yhdessä asiakkaan kanssa, ei missään vaiheessa pitäisi syntyä tilannetta, jossa kehitystiimi toteuttaa ominaisuuksia, jotka ovat vääriä tai valmistuessaan jo vanhentuneita tai hyödyttömiä asiakkaan liiketoiminnan kannalta. Erityisen hyvin tällaiseen tilanteeseen päästään, kun BDD:n toimintatavat yhdistetään Scrumiin tai johonkin muuhun inkrementaaliseen prosessimalliin, jossa vaatimuksia ei lyödä heti projektin alussa lukkoon, vaan niitä työstetään jatkuvasti projektin edetessä.
+
+Esimerkiksi Scrumin \cite{scrumguide} yhteydessä BDD:n käytäntöjä voitaisiin hyödyntää seuraavalla tavalla:
+\begin{itemize}
+\item Product ownerin johdolla tehtävässä tuotebacklogin groomauksessa, eli siistimisessä ja priorisoinnissa voidaan yhdessä asiakkaan kanssa määritellä tuleville toiminnallisuuksille hyväksymiskriteereitä, eli käytännössä kriteereitä sille, milloin voidaan katsoa jonkin ominaisuuden olevan valmis
+\item Samalla backlogin groomauksessa voitaisiin vaatimukset kirjoittaa yhdessä asiakkaan kanssa suoraan oikeaan muotoon BDD:tä varten, eli käyttäen esimerkiksi Gherkinin syntaksia, jos projektissa käytetty BDD-testikehys sitä käyttäisi.
+\item Mahdollisesti vaatimuksia voitaisiin määritellä myös erillisessä tilaisuudessa, jos sen koettaisiin olevan liian raskasta groomauksen yhteydessä.
+\item Sprint planningissa sprintiin mukaan otettavia töitä arvioitaisiin testiesimerkkien muotoon tehtyjen vaatimusmäärittelyjen pohjalta.
+\item Sprinttien aikana kehitystiimi toteuttaa ominaisuuksia määriteltyjen testitapausten avulla. Kehitystiimi toteuttaa ensin määritellyille testitapauksille testin teknisen osan, eli toimivan koodin ensin testille, jotta testiä voidaan käyttää ja tämän jälkeen vielä ohjelmakoodi itse ominaisuudelle, jotta testi menee läpi. 
+\item Epäselvissä tilanteissa määriteltyjä testejä voidaan käydä läpi yhdessä product ownerin kanssa, jolla pitäisi jatkuvasti olla projektissa paras tieto siitä, mitä halutaan toteuttaa. 
+\end{itemize}
+Tämä on vain esimerkki siitä, kuinka BDD:n toimintatavat voitaisiin yhdistään käytössä oleviin vakiintuneisiin ohjelmistokehityksen prosessimalleihin. Käytännössä kuitenkin tavat voivat vaihdella tiimistä ja projektista riippuen sen mukaan, mikä parhaiten oikeasti toimii. Mitään tarkasti määriteltyjä toimintatapoja BDD:n soveltamiseen ei ole minkään tahon toimesta kehitetty, vaan kuten monissa muissakin uusissa ja vakiintumattomissa tietotekniikan alan malleissa, parhaat käytänteet muuttuvat ja kehittyvät jatkuvasti.
 
 \section{BDD:n hyödyntäminen mobiilikehityksessä offshore-tiimeillä}
 
