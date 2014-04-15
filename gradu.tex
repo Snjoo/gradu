@@ -26,7 +26,7 @@
 \setauthor{Samppa}{Hynninen}
 \yhteystiedot{samppa.hynninen@jyu.fi}
 
-\setdate{09}{04}{2014}
+\setdate{15}{04}{2014}
 
 \tiivistelma{Tähän tulee tutkielman tiivistelmä.}
 \abstract{Here comes the abstract of the thesis.}
@@ -378,7 +378,14 @@ Esimerkiksi Scrumin \cite{scrumguide} yhteydessä BDD:n käytäntöjä voitaisiin hyö
 \end{itemize}
 Tämä on vain esimerkki siitä, kuinka BDD:n toimintatavat voitaisiin yhdistään käytössä oleviin vakiintuneisiin ohjelmistokehityksen prosessimalleihin. Käytännössä kuitenkin tavat voivat vaihdella tiimistä ja projektista riippuen sen mukaan, mikä parhaiten oikeasti toimii. Mitään tarkasti määriteltyjä toimintatapoja BDD:n soveltamiseen ei ole minkään tahon toimesta kehitetty, vaan kuten monissa muissakin uusissa ja vakiintumattomissa tietotekniikan alan malleissa, parhaat käytänteet muuttuvat ja kehittyvät jatkuvasti.
 
-\section{BDD:n hyödyntäminen mobiilikehityksessä offshore-tiimeillä}
+\section{BDD:n hyödyntäminen ohjelmistoprojektien ulkoistuksessa}
+Eräs mahdollisuus, jonka BDD tarjoaa, on sen työtapojen hyödyntäminen projekteissa, joissa koko ohjelmistokehitys tai vain osia siitä on ulkoistettu. Monesti ulkoistamisen syyt liittyvät taloudellisiin seikkoihin, eli ulkoistettuna työt saadaan halvemmalla toteutettua. 2012 julkaistussa artikkelissaan \cite{qualityrisk} Salma, Lyes, Abderahman ja Younes kuitenkin toteavat, että töiden ulkoistaminen lisää erityisen paljon laatuun liittyviä riskitekijöitä projekteille. Tällaisia riskejä ovat muun muassa todellisten kulujen kasvaminen, riippuvuuden kasvaminen yhteen toimittajaan sekä mahdollisesti tuote, joka ei täytä sille asetettuja vaatimuksia \cite{qualityrisk}.
+
+Edellämainituista ongelmista monet osuvat paljolti samalle alueelle kuin ongelmat, joita BDD:tä käyttämällä yritetään ratkoa. Käytännössä siis soveltamalla BDD:tä ohjelmistoprojektien ulkoistuksessa, voitaisiin mahdollisesti päästä eroon joistain siihen liittyvistä ongelmista ja riskitekijöistä.
+
+Ongelma, jossa ulkoistettuna kehitetty tuote ei täytä sille asetettuja vaatimuksia, voidaan välttää BDD:tä soveltamalla. Olennaista tässäkin on kommunikaation tärkeys eri sidosryhmien välillä, kuten tässä tapauksessa esimerkiksi voisi olla kyseessä asiakas, ohjelmistoprojektin toimittaja ja vielä kehitystiimin osa toisessa maassa. Tällaisessa tilanteessa monesti perinteinen tapa toimia olisi sellainen, että toimittaja määrittelee asiakkaan kanssa vaatimuksia, jotka sitten lähetetään toteutettavaksi kolmannen osapuolen toimesta, jolloin mahdollisia väärinkäsityksiä ja informaatiokatkoksia voi syntyä jo monessa kohdassa. Pelkästään vaatimusten merkityksestä voi olla tällaisessa tilanteessa jo kolme eri näkemystä.  
+
+Behaviour-driven developmentin soveltaminen ei kuitenkaan ratkaise läheskään kaikkia ulkoistamiseen liittyviä ongelmia, vaikka sen toimintatapojen avulla voidaan vähentää joitain olemassa olevia riskejä. Artikkelissaan Salma et al. toteavatkin, että ulkoistamispäätökseen liittyy aina lukematon määrä riskejä, joista jonkun on vain otettava projektissa vastuu \cite{qualityrisk}. Monet ulkoistamiseen liittyvät riskit ovatkin sellaisia, joihin ei BDD:llä voida vaikuttaa millään tavalla. Esimerkiksi ulkoistamisesta mahdollisesti seuraavat tietotaidon häviäminen ulkoistavasta yrityksestä sekä mahdolliset kulttuurilliset ongelmat eri tahojen välillä ovat sellaisia, joita BDD:n tapojen soveltaminen ei suoranaisesti selvitä. 
 
 \chapter{BDD mobiilialustoilla}
 
@@ -530,6 +537,10 @@ Liz Keogh, \textit{Translating TDD to BDD}, 2009, saatavilla WWW-muodossa
 \bibitem{businessdsl}
 Martin Fowler, \textit{BusinessReadableDSL}, saatavilla WWW-muodossa
 <URL: \texttt{http://www.martinfowler.com/bliki/BusinessReadableDSL.html}>, viitattu 10.04.2014.
+
+\bibitem{qualityrisk}
+Bellaâj Salma, Kermad Lyes, Elmhamdi Abderahman ja Boujelbène Younes, \textit{Quality Risk in Outsourcing},
+International Conference on Service Systems and Service Management, 2007.
 
 \bibitem{ibm}
 IBM developerWorks: http://www.ibm.com/developerworks/java/library/j-cq09187/index.html
