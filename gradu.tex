@@ -401,7 +401,22 @@ Tutkielmaan valittiin otokseksi kirjoitushetken kolme suosituinta mobiilikäyttöj
 \subsection{iOS BDD-frameworkit}
 Yksi tunnetuimmista iOS:n BDD-testikehyksistä on avoimeen lähdekoodiin perustuva Frank \cite{frank}, jonka toiminta pohjautuu jo aiemmin useasti mainittuun Cucumberiin ja sitä myöten myös Gherkin-parseriin. Tämä tarkoittaa sitä, että Frank-testikehyksen testit voidaan määritellä samalla tavoin kuin Cucumber-testit \cite{cucumber} ja muiden Gherkin-parseria käyttävien testikehysten testit \cite{gherkin}. Frankin stepit määritellään samalla tavoin Ruby-ohjelmointikielellä kuin monissa muissakin Cucumberiin pohjautuvissa testikehyksissä. Toisin kuin monissa muissa testikehyksissä, Frankissa tulee mukana valmiina setti valmiiksimääriteltyjä testisteppejä \cite{franksteps}, joka varmasti alentaa kynnystä lähteä kokeilemaan BDD-kehitystä, jos ei ole aiheeseen aiemmin tutustunut. Testisteppien kirjoittamiseenkin Frank tarjoaa helpotusta FrankHelper-moduulin muodossa \cite{frankhelper}, joka tarjoaa valmiiksi ohjelmoituja apukirjastoja, joiden avulla uusien testien kirjoittamista ei tarvitse aloittaa täysin tyhjästä, vaan ne tarjoavat kattavan pohjan useimmin käytettyjä metodeita Frankin hyödyntämiseen.
 
-Toinen BDD-testikehys Applen iOS-käyttöjärjestelmälle on Kiwi \cite{kiwi}, joka poikkeaa paljolti edellä käsitellystä Frank-testikehyksestä. Kiwissä testit kirjoitetaan Objective-C -ohjelmointikielellä, eli samalla kielellä, jolla iOS:n natiivisovellukset muutenkin kirjoitetaan. Kiwissä testien kirjoittaminen on muutenkin integroitu vahvasti iOS:n tavallisiin sovelluskehitysvälineisiin, kuten Xcode-editoriin \cite{xcode}. Kiwi-testejä voidaan kirjoittaa ja ajaa suoraan Xcode-kehitysympäristöstä, jolloin testien tekemisen pitäisi olla mahdollisimman yksinkertaista iOS-sovelluksia tehtäessä.
+Toinen BDD-testikehys Applen iOS-käyttöjärjestelmälle on Kiwi \cite{kiwi}, joka poikkeaa paljolti edellä käsitellystä Frank-testikehyksestä. Kiwissä testit kirjoitetaan Objective-C -ohjelmointikielellä, eli samalla kielellä, jolla iOS:n natiivisovellukset muutenkin kirjoitetaan. Kiwissä testien kirjoittaminen on muutenkin integroitu vahvasti iOS:n tavallisiin sovelluskehitysvälineisiin, kuten Xcode-editoriin \cite{xcode}. Kiwi-testejä voidaan kirjoittaa ja ajaa suoraan Xcode-kehitysympäristöstä, jolloin testien tekemisen pitäisi olla mahdollisimman yksinkertaista iOS-sovelluksia tehtäessä. Kuten edellä mainittiin, poikkeaa Kiwin testit syntaksiltaan muista iOS:n BDD-testikehyksistä, sillä sen testit kirjoitetaan Objective-C:llä. Samalla tavoin kuin esimerkiksi RSpec-testeissä, myös Kiwissä kaikki testit kirjoitetaan samaan tiedostoon, eikä mitään erillisiä testien kuvauksia ja testisteppien määrityksiä ole. Esimerkiksi seuraavassa testataan, että henkilö-objektilla on nimi ja kaksi vanhempaa:
+\begin{verbatim}
+describe(@"Person", ^{
+    context(@"when newly created", ^{
+        it(@"should have a name", ^{
+            id person = [Person person];
+            [[person.name should] equal:@"Test Person"];
+        });
+
+        it(@"should have 2 parents", ^{
+            id person = [Person person];
+            [[[person should] have:2] parents];
+        });
+    });
+});
+\end{verbatim}
 
 \subsection{Android BDD-frameworkit}
 
