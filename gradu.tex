@@ -393,22 +393,33 @@ Ongelma, jossa ulkoistettuna kehitetty tuote ei täytä sille asetettuja vaatimuks
 Behaviour-driven developmentin soveltaminen ei kuitenkaan ratkaise läheskään kaikkia ulkoistamiseen liittyviä ongelmia, vaikka sen toimintatapojen avulla voidaan vähentää joitain olemassa olevia riskejä. Artikkelissaan Salma et al. toteavatkin, että ulkoistamispäätökseen liittyy aina lukematon määrä riskejä, joista jonkun on vain otettava projektissa vastuu \cite{qualityrisk}. Monet ulkoistamiseen liittyvät riskit ovatkin sellaisia, joihin ei BDD:llä voida vaikuttaa millään tavalla. Esimerkiksi ulkoistamisesta mahdollisesti seuraavat tietotaidon häviäminen ulkoistavasta yrityksestä sekä mahdolliset kulttuurilliset ongelmat eri tahojen välillä ovat sellaisia, joita BDD:n tapojen soveltaminen ei suoranaisesti selvitä. 
 
 \chapter{BDD mobiilialustoilla}
-Tässä tutkielmassa keskitytään erityisesti tutkimaan BDD:tä mobiilialustoilla.
+Tässä tutkielmassa keskitytään erityisesti tutkimaan BDD:tä mobiilialustoilla. Mobiilialustoilla ohjelmistokehitys eroaa monilta osin paljon tavanomaisesta työpöytäympäristöihin keskittyneestä ohjelmistokehityksestä johtuen suuresta määrästä markkinoilla olevia mobiilikäyttöjärjestelmiä. Sen lisäksi, että näiden niin kutsuttujen natiivisovellusten kehitys ja ekosysteemit poikkeavat tavallisesta, ovat mobiililaitteet tuoneet omat haasteensa myös web-teknologioihin. Tässä tutkielmassa keskitytäänkin tutkimaan ohjelmistokehitystä BDD:n avulla näistä kahdesta näkökulmasta, eli ensin käsitellään natiivisovellusten testaamista BDD-menetelmillä eri mobiilialustoilla. Tämän jälkeenn käsitellään erikseen moderneilla web-teknologioilla toteutettujen HTML5-mobiilisovellusten BDD-testaamista.
 
 \section{Natiivisovellukset}
+Tutkielmaan valittiin otokseksi kirjoitushetken kolme suosituinta mobiilikäyttöjärjestelmää \cite{marketshare}, joiden kohdalla tutkittiin mahdollisuuksia testata niiden natiivisovelluksia Behaviour-driven developmentin keinoin. Käyttöjärjestelmistä mukana tutkimuksessa olivat Googlen Android, Applen iOS ja Microsoftin Windows Phone. Seuraavassa käydään läpi eri mobiilikäyttöjärjestelmille olemassa olevia BDD-testikehyksiä ja niiden ominaisuuksia, kuten niiden käyttämiä parsereita.  
+
+\subsection{iOS BDD-frameworkit}
+
+Yksi tunnetuimmista iOS:n BDD-testikehyksistä on avoimeen lähdekoodiin perustuva Frank \cite{frank}, jonka toiminta pohjautuu jo aiemmin useasti mainittuun Cucumberiin ja sitä myöten myös Gherkin-parseriin. Tämä tarkoittaa sitä, että Frank-testikehyksen testit voidaan määritellä samalla tavoin kuin Cucumber-testit \cite{cucumber} ja muiden Gherkin-parseria käyttävien testikehysten testit \cite{gherkin}. Frankin stepit määritellään samalla tavoin Ruby-ohjelmointikielellä kuin monissa muissakin Cucumberiin pohjautuvissa testikehyksissä. Toisin kuin monissa muissa testikehyksissä, Frankissa tulee mukana valmiina setti valmiiksimääriteltyjä testisteppejä \cite{franksteps}, joka varmasti alentaa kynnystä lähteä kokeilemaan BDD-kehitystä, jos ei ole aiheeseen aiemmin tutustunut. Testisteppien kirjoittamiseenkin Frank tarjoaa helpotusta FrankHelper-moduulin muodossa \cite{frankhelper}, joka tarjoaa valmiiksi ohjelmoituja apukirjastoja, joiden avulla uusien testien kirjoittamista ei tarvitse aloittaa täysin tyhjästä, vaan ne tarjoavat kattavan pohjan useimmin käytettyjä metodeita Frankin hyödyntämiseen.
+
+\subsection{Android BDD-frameworkit}
+
+\subsection{Windows phone BDD-frameworkit}
 
 \section{HTML5-sovellukset}
+
+\subsection{HTML5-sovellusten BDD-testaaminen}
+
+\subsection{Natiivisovellusten tuottaminen HTML5-sovelluksista}
 
 \chapter{Crossplatform-testaaminen eri mobiilialustoilla}
 \label{chap:platforms}
 
-\section{iOS BDD-frameworkit}
-
-\section{Android BDD-frameworkit}
-
-\section{Windows phone BDD-frameworkit}
-
 \section{Mahdollisuudet testata kaikki alustat yhdellä testisetillä}
+
+\subsection{Samaa parseria käyttävien BDD-testikehysten käyttäminen}
+
+\subsection{HTML5}
 
 \chapter{Pohdintaa}
 
@@ -547,6 +558,18 @@ Martin Fowler, \textit{BusinessReadableDSL}, saatavilla WWW-muodossa
 \bibitem{qualityrisk}
 Bellaâj Salma, Kermad Lyes, Elmhamdi Abderahman ja Boujelbène Younes, \textit{Quality Risk in Outsourcing},
 International Conference on Service Systems and Service Management, 2007.
+
+\bibitem{frank}
+\textit{Testing With Frank - Painless iOS and Mac Testing With Cucumber}, saatavilla WWW-muodossa
+<URL: \texttt{http://www.testingwithfrank.com/}>, viitattu 22.04.2014.
+
+\bibitem{franksteps}
+\textit{Frank/gem/lib/frank-cucumber/core\_frank\_steps.rb}, saatavilla WWW-muodossa
+<URL: \texttt{https://github.com/moredip/Frank/blob/master/gem/lib/frank-cucumber/core\_frank\_steps.rb}>, viitattu 22.04.2014.
+
+\bibitem{frankhelper}
+\textit{Module: Frank::Cucumber::FrankHelper}, saatavilla WWW-muodossa
+<URL: \texttt{http://rdoc.info/gems/frank-cucumber/Frank/Cucumber/FrankHelper}, viitattu 22.04.2014.
 
 \bibitem{ibm}
 IBM developerWorks: http://www.ibm.com/developerworks/java/library/j-cq09187/index.html
