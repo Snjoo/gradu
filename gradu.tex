@@ -427,6 +427,43 @@ Kolmantena esimerkkinä Applen iOS:n BDD-testikehyksistä mukaan valittiin Calabas
 \end{figure}
 
 \subsection{Android BDD-frameworkit}
+Kuten iOS:lle, myös Googlen Android-käyttöjärjestelmälle on olemassa useita eri vaihtoehtoisia testikehyksiä, joilla ohjelmistoja voidaan kehittää BDD-tyyliin. Yksi vaihtoehdoista on jo edellä käsitelty Calabash \cite{calabash}, josta löytyy iOS-version ohella myös Android-versio. Vaikka Calabash onkin tällä hetkellä yksi tunnetuimmista BDD-testikehyksistä mobiilialustoille, on Androidille kuitenkin sen lisäksi olemassa useita muitakin vaihtoehtoja, joihin kuuluu sekä Cucumberiin pohjautuvia ratkaisuja kuin myös täysin Cucumberista erillisiä omanlaisia ratkaisujaan.
+
+Yksi UI-testauskehys ja BDD-testikehys Androidille on robotium \cite{robotium}, joka on avoimen lähdekoodin testikehys, jolla voidaan testata niin ohjelmistoja, joista on lähdekoodit saatavilla, kuin myös ohjelmistoja, joista on saatavilla ainoastaan Androidin apk-pakettitiedosto. Samalla tavoin kuin esimerkiksi Rubyn RSpec-testikirjastossa, myöskään robotiumissa ei ole erillisiä määrityksiä testitapauksille ja erikseen suoritettaville testistepeille. Robotiumissa testit määritellään kokonaisuudessaan yhdessä tiedostossa samaan tapaan kuin esimerkiksi Java-ohjelmointikielessä perinteiset JUnit-yksikkötestit. Tältä osin robotium ei siis toimi samalla tavoin kuin Dan Northin määritelmä BDD:n testien muodosta \cite{bddintro}. Ohessa on esimerkki robotium-testistä, jossa testataan, että ohjelmistossa löytyy MENU-nappia painamalla Examples-valikon alta kolme eri ``Example''-tekstiä numeroituna.
+
+\begin{verbatim}
+public class ExampleTest extends
+                ActivityInstrumentationTestCase2<ExampleActivity> {
+
+  private Solo solo;
+
+  public ExampleTest() {
+                super(ExampleActivity.class);
+  }
+
+  public void setUp() throws Exception {
+        solo = new Solo(getInstrumentation(), getActivity());
+  }
+  
+  public void testMenuHasMultipleExamples() throws Exception {
+  
+                solo.sendKey(Solo.MENU);
+                solo.clickOnText("Examples");
+                Assert.assertTrue(solo.searchText("Example 1"));
+                Assert.assertTrue(solo.searchText("Example 2"));
+                Assert.assertTrue(solo.searchText("Example 3"));
+  }
+
+   @Override
+   public void tearDown() throws Exception {
+        solo.finishOpenedActivities();
+  }
+}
+\end{verbatim}
+
+Kuten edellä esitellystä esimerkistä helposti huomataan, ei robotium tarjoa läheskään yhtä hyvää luettavuutta testeilleen kuin monet muut BDD-testikehykset, joissa testejä voidaan määritellä luonnollisia kieliä lähellä olevilla kielillä. Robotiumin testit ovatkin puhtaasti Javaa, joka tarkoittaa sitä, että robotiumin kohdalla menetetään yksi tärkeä etu verrattuna muihin BDD-testikehyksiin, joka on testikehysten tarjoama kommunikaatiomahdollisuuksien helpotus. Robotiumin kohdalla ei ole enää järkevää, eikä monesti edes mahdollista, että asiakkaan edustaja osallistuisi testien luontiin yhtä tiiviisti kuin muiden BDD-testikehysten kohdalla, sillä robotiumin kanssa asiakas ei pysty keskustelemaan testeistä mitenkään järkevästi, eikä kertomaan niihin omia lisäyksiään ilman asiantuntemusta Java-ohjelmointikielestä. Tästä syystä voidaankin miettiä ovatko robotium ja esimerkiksi RSpec \cite{rspec} oikeastaan BDD-testikehyksiä vai jonkinlaisia välimuotoja yksikkötestikehysten ja BDD-testikehysten välillä. Toisaalta robotiumin voidaan ajatella myös olevan vain puhtaasti testikehys automaattiseen käyttöliittymätestaukseen.
+
+Kolmantena esimerkkinä Calabashin ja robotiumin ohella Androidin BDD-testikehyksistä on puhtaasti Cucumber-pohjainen ratkaisu, eli Cucumber-Android \cite{cucumberandroid}, joka on osa Cucumber-JVM -projektia \cite{cucumberjvm}, jossa kehitetään puhtaasti Java-implementaatiota Cucumberista.
 
 \subsection{Windows phone BDD-frameworkit}
 
@@ -619,8 +656,17 @@ International Conference on Service Systems and Service Management, 2007.
 \textit{Test mobile apps for every device using Xamarin Test Cloud}, saatavilla WWW-muodossa
 <URL: \texttt{http://xamarin.com/test-cloud}, viitattu 23.04.2014.
 
-\bibitem{ibm}
-IBM developerWorks: http://www.ibm.com/developerworks/java/library/j-cq09187/index.html
+\bibitem{robotium}
+\textit{robotium - The world's leading Android test automation framework}, saatavilla WWW-muodossa
+<URL: \texttt{https://code.google.com/p/robotium/}>, viitattu 23.04.2014.
+
+\bibitem{cucumberandroid}
+\textit{cucumber-jvm/examples/android}, saatavilla WWW-muodossa
+<URL: \texttt{https://github.com/cucumber/cucumber-jvm/tree/master/examples/android}>, viitattu 23.04.2014
+
+\bibitem{cucumberjvm}
+\textit{Cucumber for the JVM}, saatavilla WWW-muodossa
+<URL: \texttt{https://github.com/cucumber/cucumber-jvm}>, viitattu 23.04.2014
 
 \end{thebibliography}
 
