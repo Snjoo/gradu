@@ -478,6 +478,12 @@ Kaikenkaikkiaan jokaiselle kolmelle tutkitulle mobiilialustalle löytyy Behaviour
 
 \subsection{HTML5-sovellusten BDD-testaaminen}
 
+HTML5:llä tarkoitetaan nykypäivänä sekä HTML-merkintäkielen uusinta versiota \cite{html5} sekä myös siihen liittyviä moderneja teknologioita, joilla kehitetään web-sovelluksia \cite{html5revolution}. Näihin teknologioihin kuuluu esimerkiksi CSS-tyyliohjeiden uusin versio CSS3 \cite{css3}, joka tuo CSS-tyylitiedostoihin uusia ominaisuuksia, kuten esimerkiksi animaatioita, säilyttäen kuitenkin taaksepäin yhteensopivuuden vanhempien versioiden kanssa. CSS:n ohella moderneissa web-sovelluksissa tärkeässä osassa toimii JavaScript-ohjelmointikieli \cite{html5revolution} ja erityisesti JavaScriptillä toteutetut sovelluskehykset, joiden avulla saadaan entistä laajempia ja monimutkaisempia sovelluksia toimimaan web-pohjaisina ilman, että niitä tarvitsee kirjoittaa alusta alkaen kokonaan tyhjästä. Esimerkkejä näistä sovelluskehyksistä ovat esimerkiksi Node.js \cite{nodejs} ja Meteor \cite{meteor}. Sekä Node.js että Meteor ovat kummatkin JavaScript-ohjelmistokehyksiä, eli käytännössä kilpailevia tuotteita. Monesti projekteissa käytettävän sovelluskehyksen valinta onkin lähinnä kiinni kehitystiimin ja arkkitehtien mieltymyksistä ja tottumuksista, sillä lähes kaikki asiat voidaan eri sovelluskehyksillä toteuttaa, ja monesti erot sovelluskehysten välillä ovatkin lähinnä vain tavoissa, joilla niissä asiat tehdään. Esimerkiksi Meteorissa on panostettu erityisesti sovellusten reaktiivisuuteen, datan käsittelyyn asiakaspäässä ja pieniin latensseihin käyttäen mallien simulointia ja ennakkohakuja \cite{meteor}. Node.js-sovelluskehyksessä on vastaavasti sen sijaan panostettu ennen kaikkea skaalautuvuuteen ja skaalautuvien sovellusten kehittämiseen helposti. Kyseisessä kehyksessä ei esimerkiksi ole lainkaan prosesseja, jotka tekisivät suoraan luku- tai kirjoitusoperaatioita, jolloin kehittäjien ei tarvitse itse huolehtia mahdollisista estoista, joita nämä operaatiot aiheuttaisivat \cite{nodejs}.
+
+Merkittävää tällaisissa moderneissa web-sovelluksissa on se, että niiden käyttöliittymät voidaan toteuttaa siten, että ne toimivat oikein kaikenkokoisilla päätelaitteilla, eli responsiivisesti skaalautuvat oikein eri kokoisille näytöille. Lähivuosina erilaisten mobiililaitteiden, kuten erilaisten tablet-tietokoneiden ja älypuhelinten yleistymisen myötä web-sovellusten kehityksessäkin on alettu panostaa entistä enemmän mobiilialustojen toimivuuteen. Tällainen kehitystapa, jossa alusta asti sovellusta kehitetään responsiiviseksi ja toimimaan eri mobiilialustoilla, on nimeltään Mobile First -suunnittelu \cite{mobilefirst}.
+
+Tällaisten moderneilla HTML5-teknologioilla toteutettuja web-sovellusten testaaminen on helppoa ja siihen on olemassa monia eri työkaluja. Perinteisten yksikkötestien lisäksi HTML5-sovelluksia voidaan helposti testata BDD-tyyliin.
+
 \subsection{Natiivisovellusten tuottaminen HTML5-sovelluksista}
 
 \chapter{Crossplatform-testaaminen eri mobiilialustoilla}
@@ -678,6 +684,30 @@ International Conference on Service Systems and Service Management, 2007.
 \bibitem{wptf}
 \textit{Expensify/WindowsPhoneTestFramework}, saatavilla WWW-muodossa
 <URL: \texttt{https://github.com/Expensify/WindowsPhoneTestFramework}>, viitattu 24.04.2014.
+
+\bibitem{html5}
+\textit{HTML5 Introduction}, saatavilla WWW-muodossa
+<URL: \texttt{http://www.w3schools.com/html/html5\_intro.asp}>, viitattu 28.04.2014.
+
+\bibitem{html5revolution}
+Gary Anthes, \textit{HTML5 leads a web revolution},
+Communications of the ACM, Volume 55 Issue 7, July 2012.
+
+\bibitem{css3}
+\textit{CSS3 Introduction}, saatavilla WWW-muodossa
+<URL: \texttt{http://www.w3schools.com/css/css3\_intro.asp}>, viitattu 28.04.2014.
+
+\bibitem{nodejs}
+\textit{node.js}, saatavilla WWW-muodossa
+<URL: \texttt{http://nodejs.org/}>, viitattu 28.04.2014.
+
+\bibitem{meteor}
+\textit{Meteor}, saatavilla WWW-muodossa
+<URL: \texttt{https://www.meteor.com/}>, viitattu 28.04.2014.
+
+\bibitem{mobilefirst}
+Sumit Pandey, \textit{Responsive design for transaction banking - a responsible approach},
+APCHI '13 Proceedings of the 11th Asia Pacific Conference on Computer Human Interaction, 2013.
 
 \end{thebibliography}
 
