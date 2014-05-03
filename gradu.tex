@@ -26,7 +26,7 @@
 \setauthor{Samppa}{Hynninen}
 \yhteystiedot{samppa.hynninen@jyu.fi}
 
-\setdate{23}{04}{2014}
+\setdate{03}{05}{2014}
 
 \tiivistelma{T‰h‰n tulee tutkielman tiivistelm‰.}
 \abstract{Here comes the abstract of the thesis.}
@@ -482,7 +482,43 @@ HTML5:ll‰ tarkoitetaan nykyp‰iv‰n‰ sek‰ HTML-merkint‰kielen uusinta versiota \ci
 
 Merkitt‰v‰‰ t‰llaisissa moderneissa web-sovelluksissa on se, ett‰ niiden k‰yttˆliittym‰t voidaan toteuttaa siten, ett‰ ne toimivat oikein kaikenkokoisilla p‰‰telaitteilla, eli responsiivisesti skaalautuvat oikein eri kokoisille n‰ytˆille. L‰hivuosina erilaisten mobiililaitteiden, kuten erilaisten tablet-tietokoneiden ja ‰lypuhelinten yleistymisen myˆt‰ web-sovellusten kehityksess‰kin on alettu panostaa entist‰ enemm‰n mobiilialustojen toimivuuteen. T‰llainen kehitystapa, jossa alusta asti sovellusta kehitet‰‰n responsiiviseksi ja toimimaan eri mobiilialustoilla, on nimelt‰‰n Mobile First -suunnittelu \cite{mobilefirst}.
 
-T‰llaisten moderneilla HTML5-teknologioilla toteutettuja web-sovellusten testaaminen on helppoa ja siihen on olemassa monia eri tyˆkaluja. Perinteisten yksikkˆtestien lis‰ksi HTML5-sovelluksia voidaan helposti testata BDD-tyyliin.
+T‰llaisten moderneilla HTML5-teknologioilla toteutettuja web-sovellusten testaaminen on helppoa ja siihen on olemassa monia eri tyˆkaluja. Perinteisten yksikkˆtestien lis‰ksi HTML5-sovelluksia voidaan helposti testata BDD-tyyliin. Muutamia esimerkkej‰ t‰h‰n soveltuvista testikirjastoista ovat Jasmine \cite{jasmine} ja Cucumber \cite{cucumber}, joista j‰lkimm‰iseen on saatavilla lis‰kirjastoja, joilla voidaan simuloida helposti k‰ytt‰j‰n vuorovaikutusta testattavan sovelluksen kanssa. Capybara \cite{capybara} on t‰llainen kirjasto, joka tuo Cucumberiin monia lis‰ominaisuuksia, joilla k‰ytt‰j‰n tekemisi‰ voidaan simuloida helposti Cucumberin tavallisten ominaisuuksien ohella. T‰llaisia ominaisuuksia ovat esimerkiksi erilaisten lomakkeiden t‰yttˆ halutuilla tiedoilla ja sovelluksen k‰yttˆliittym‰n eri toimintojen k‰yttˆ. Esimerkiksi Capybaran avulla voitaisiin navigoida halutulle kirjautumissivulle ja t‰ytt‰‰ lomake oikeilla tiedoilla seuraavalla tavalla:
+\begin{verbatim}
+scenario "T‰yt‰ lomake oikeilla tiedoilla" do
+  visit '/lomake/uusi'
+  within("#session") do
+    fill_in 'Email', :with => 'oikea@mailiosoite.com'
+    fill_in 'Salasana', :with => 'kissa13'
+  end
+  click_link 'Kirjaudu'
+  expect(page).to have_content 'Tervetuloa'
+end
+\end{verbatim}
+Capybaran toiminta perustuu internet-selainten automatisointiin ja siin‰ voidaankin k‰ytt‰‰ muutamia erilaisia sis‰‰nrakennettuja ajureita, jotka t‰m‰n teht‰v‰n hoitavat. Yksi Capybaran tukemista selainautomaatioajureista on Selenium \cite{selenium}, joka itsess‰‰n tukee useiden eri selainten, kuten Mozilla Firefoxin, Google Chromen ja Microsoft Internet Explorerin automatisointia \cite{selenium}. Siin‰ miss‰ tavallisesti Seleniumia k‰ytett‰isiin ohjelmakoodista suoraan k‰ytt‰en sen omia metodeja, tuo Capybara helpotusta selainautomaatioon lis‰‰m‰ll‰ oman helpostik‰ytett‰v‰n rajapinnan testien ja Seleniumin v‰lille. Tavalliset puhtaasti Seleniumilla kirjoitetut testit voisivat n‰ytt‰‰ esimerkiksi seuraavalta, kun k‰ytet‰‰n ohjelmointikielen‰ JavaScripti‰:
+\begin{verbatim}
+var driver = new webdriver.Builder().build();
+driver.get('http://testi.lomake.io/lomake/uusi');
+
+var element = driver.findElement(webdriver.By.name('email'));
+element.sendKeys('oikea@mailiosoite.com');
+
+var element2 = driver.findElement(webdriver.By.name('salasana'));
+element2.sendKeys('kissa13');
+
+driver.findElement(webdriver.By.name('submit')).click();
+\end{verbatim}
+
+Cucumberin ja Capybaran ohella toinen tapa testata HTML5-sovelluksia BDD-menetelmill‰, on k‰ytt‰‰ esimerkiksi Jasmine-testikirjastoa \cite{jasmine}, jolla voidaan kirjoittaa BDD-testej‰ suoraan JavaScriptill‰. Jasminen avulla testeist‰ voidaan muotoilla myˆs l‰hell‰ perinteisi‰ BDD-testej‰ olevia testej‰ siin‰ mieless‰, ett‰ hyvin mietityll‰ nime‰misell‰ Jasmine-testeist‰ saadaan samalla tavalla helposti luettavia kuin muillakin kirjastoilla tehdyist‰ BDD-testeist‰. 
+\begin{verbatim}
+describe("Esimerkki", function() {
+  it("esimerkki-muuttujan ei pit‰isi olla 0", function() {
+    var esimerkki = 0;
+    esimerkki += 1;
+
+    expect(esimerkki).not.toEqual(0);
+  });
+});
+\end{verbatim}
 
 \subsection{Natiivisovellusten tuottaminen HTML5-sovelluksista}
 
@@ -708,6 +744,14 @@ Communications of the ACM, Volume 55 Issue 7, July 2012.
 \bibitem{mobilefirst}
 Sumit Pandey, \textit{Responsive design for transaction banking - a responsible approach},
 APCHI '13 Proceedings of the 11th Asia Pacific Conference on Computer Human Interaction, 2013.
+
+\bibitem{capybara}
+\textit{Capybara}, saatavilla WWW-muodossa
+<URL: \texttt{https://github.com/jnicklas/capybara}>, viitattu 03.05.2014.
+
+\bibitem{selenium}
+\textit{Selenium - Web Browser Automation}, saatavilla WWW-muodossa
+<URL: \texttt{http://docs.seleniumhq.org/}>, viitattu 03.05.2014.
 
 \end{thebibliography}
 
