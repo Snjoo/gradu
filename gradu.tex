@@ -537,8 +537,24 @@ describe('esimerkki', function () {
     });
 });
 \end{verbatim} 
-Kuten esimerkistä nähdää, ei Jasminen Selenium-tuki tarjoa Capybaran kaltaisia yksinkertaistettuja rajapintoja Seleniumin käyttöön, vaan kutsut ovat hyvin pitkälti tavanomaisia Seleniumin kutsuja, mikä saattaa hankaloittaa testien ymmärtämistä etenkin, jos lukijana on joku ei-tekninen henkilö, kuten mahdollisesti asiakkaan edustaja ohjelmistoprojektissa.
+Kuten esimerkistä nähdää, ei Jasminen Selenium-tuki tarjoa Capybaran kaltaisia yksinkertaistettuja rajapintoja Seleniumin käyttöön, vaan kutsut ovat hyvin pitkälti tavanomaisia Seleniumin kutsuja, mikä saattaa hankaloittaa testien ymmärtämistä etenkin, jos lukijana on joku ei-tekninen henkilö, kuten mahdollisesti asiakkaan edustaja ohjelmistoprojektissa. Ylipäänsä siis modernien web-sovellusten testaaminen BDD-menetelmillä on helppoa ja siihen on tarjolla useita eri ratkaisuja, jotka eroavat toisistaan toimintamalleiltaan ja käytettyjen teknologioiden osalta.
+
 \subsection{Natiivisovellusten tuottaminen HTML5-sovelluksista}
+Edellä käsitellyt HTML5-sovellukset ovat nykypäivänä hyvin pitkälti standardi moderneille web-sovelluksille ja kyseisiin teknologioihin perustuvia ratkaisuja kehitetäänkin jatkuvasti. Koska HTML5-sovellukset ovat yleistyneet viimeisten vuosien aikana valtavasti, on lähiaikoina kehitetty keinoja, joilla näiden sovellusten etuja voitaisiin hyödyntää entistä tehokkaammin myös mobiilisovellusten kehityksessä. Yksi tällainen ratkaisu on tuottaa HTML5-sovelluksista monella mobiilialustalla toimivia natiivisovelluksia. Mahdollisuus käyttää HTML5-teknologioita natiivien mobiilisovellusten kehitykseen tuo mukanaan esimerkiksi seuraavia etuja:
+\begin{itemize}
+\item Ajansäästö, kun ei ole tarvetta kääntää sovellusta erikseen eri mobiilialustoille.
+\item Tutut työkalut ja kielet, jos tiimi on aiemminkin kehittänyt HTML5-sovelluksia.
+\item Ei tarvetta rekrytoida eri mobiilialustojen osaajia tai kehittää nykyisten kehittäjien osaamista spesifeillä koulutuksilla.
+\item Mahdollisuus saada tuote nopeammin markkinoille, kun ei tarvitse käyttää aikaa eri mobiiliversioiden kehittämiseen.
+\item HTML5-pohjaisuudesta huolimatta natiivisovellusten edut, kuten esim. keskitetyt sovelluskaupat, esimerkkinä Googlen Play Store ja Applen AppStore.
+\end{itemize} 
+
+\begin{figure}
+\centering
+\includegraphics[width=0.95\textwidth]{phonegap}
+\caption{PhoneGapin toimintamalli \cite{phonegap}}
+\end{figure}
+
 
 \chapter{Crossplatform-testaaminen eri mobiilialustoilla}
 \label{chap:platforms}
@@ -774,6 +790,10 @@ APCHI '13 Proceedings of the 11th Asia Pacific Conference on Computer Human Inte
 \bibitem{webdriverjs}
 \textit{webDriverJs - A Guide to using the JavaScript bindings for WebDriver}, saatavilla WWW-muodossa
 <URL: \texttt{http://code.google.com/p/selenium/wiki/WebDriverJs}>, viitattu 03.05.2014.
+
+\bibitem{phonegap}
+\textit{PhoneGap}, saatavilla WWW-muodossa
+<URL: \texttt{http://phonegap.com/}>, viitattu 03.05.2014.
 
 \end{thebibliography}
 
