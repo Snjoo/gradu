@@ -520,8 +520,24 @@ describe("Esimerkki", function() {
   });
 });
 \end{verbatim}
-Samalla tavoin kuin Cucumberiin, on myös Jasminessa tuki selainautomaatiolle, jonka avulla käyttäjien käyttäytymistä voidaan mallintaa testeihin.
+Samalla tavoin kuin Cucumberiin, on myös Jasmineen mahdollista integroida tuki selainautomaatiolle, jonka avulla käyttäjien käyttäytymistä voidaan mallintaa testeihin. Yksi ratkaisu tähän on käyttää avoimen lähdekoodin WebDriverJs-ajuria \cite{webdriverjs}, joka mahdollistaa Selenium WebDriverin \cite{selenium} käytön suoraan JavaScript-koodista ja näin ollen myös Jasmine-testeistä. WebDriverJs voidaan helposti asentaa käyttäen NodeJS:n \cite{nodejs} paketinhallintajärjestelmä NPM:ää. Tämän jälkeen Jasmine-testeihin voidaan suoraan kirjoittaa kutsuja, joissa Seleniumia käytetään esimerkiksi seuraavalla tavalla:
+\begin{verbatim}
+var webdriver = require('selenium-webdriver');
 
+var driver = new webdriver.Builder().
+    withCapabilities(webdriver.Capabilities.firefox()).
+    build();
+
+describe('esimerkki', function () {
+    it('sivun pitäisi olla oikea haun jälkeen', function () {
+        driver.get('http://testi.lomake.io/lomake/uusi');
+        driver.getTitle().then(function(title) {
+            expect(title).toBe('Testilomake');
+        });
+    });
+});
+\end{verbatim} 
+Kuten esimerkistä nähdää, ei Jasminen Selenium-tuki tarjoa Capybaran kaltaisia yksinkertaistettuja rajapintoja Seleniumin käyttöön, vaan kutsut ovat hyvin pitkälti tavanomaisia Seleniumin kutsuja, mikä saattaa hankaloittaa testien ymmärtämistä etenkin, jos lukijana on joku ei-tekninen henkilö, kuten mahdollisesti asiakkaan edustaja ohjelmistoprojektissa.
 \subsection{Natiivisovellusten tuottaminen HTML5-sovelluksista}
 
 \chapter{Crossplatform-testaaminen eri mobiilialustoilla}
@@ -754,6 +770,10 @@ APCHI '13 Proceedings of the 11th Asia Pacific Conference on Computer Human Inte
 \bibitem{selenium}
 \textit{Selenium - Web Browser Automation}, saatavilla WWW-muodossa
 <URL: \texttt{http://docs.seleniumhq.org/}>, viitattu 03.05.2014.
+
+\bibitem{webdriverjs}
+\textit{webDriverJs - A Guide to using the JavaScript bindings for WebDriver}, saatavilla WWW-muodossa
+<URL: \texttt{http://code.google.com/p/selenium/wiki/WebDriverJs}>, viitattu 03.05.2014.
 
 \end{thebibliography}
 
