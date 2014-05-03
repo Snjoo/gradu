@@ -48,7 +48,6 @@ Ohjelmistotestauksen ollessa kriittinen osa ohjelmistotuotantoprosessia ja erity
 
 Tämän pro gradu -tutkielman tavoitteena on kartoittaa behaviour-driven developmentin tarjoamia mahdollisuuksia helpottaa mobiiliohjelmistojen kehitystä ja erityisesti testausta. Tarkoituksena on selvittää millaisia BDD-testikehyksiä merkittävimmille mobiilialustoille on tällä hetkellä olemassa ja miten eri mobiilialustojen testikehykset poikkeavat toisistaan. Tämä lisäksi tarkoituksena on selvittää, millaisia liiketoiminnallisia etuja BDD:llä voidaan mobiilisovelluskehityksessä saavuttaa. Tutkielma toteutetaan käyttäen konstruktiivista tutkimusotetta ja siinä pyritään lopputuloksena toteuttamaan ympäristö, jossa samaa sovellusta voitaisiin testataan eri mobiilialustoilla yhdellä testikokoelmalla. Testiympäristön toteutuksen yhteydessä tutkitaan millaisia puutteita nykyratkaisuissa on ja miten niitä voitaisiin kehittää, jotta yhden testikokoelman mallia voitaisiin käyttää.
 
-\chapter{Tutkimuksesta}
 \section{Termejä}
 \begin{itemize}
 \item Apache Cordova: Avoimen lähdekoodin ohjelmisto, johon PhoneGap perustuu.
@@ -66,6 +65,17 @@ Tämän pro gradu -tutkielman tavoitteena on kartoittaa behaviour-driven developme
 \item TDD: Test-driven development. Testivetoinen kehitys, ohjelmistokehityksen prosessi, jossa testit kirjoitetaan ennen ohjelmakoodia
 \end{itemize}
 
+\section{Tutkimusmenetelmistä}
+Tutkimus on toteutettu käyttäen konstruktiivista tutkimusotetta. Konstruktiivisessa tutkimusotteessa tavoitteena on rakentaa jonkinlainen artefakti, joka ratkaisee jonkin tietyn alan kysymyksen ja tätä kautta lisää tietoa ongelmasta ja sen ratkaisusta alalla \cite{constructive}. Tutkielmassani yritän löytää ratkaisua kysymykseen, voidaanko tämänhetkisten modernien mobiilialustojen ohjelmistoja testata tehokkaasti käyttäen Behaviour-driven developmentin toimintatapoja.
+
+Tutkimuskysymykseen vastatakseni tutkimuksessa kartoitetaan ensiksi millaisia BDD-työkaluja mobiilialustoille on nykyään saatavilla. Tutkimuksessani käytettävät alustat olen rajannut kattamaan kolme suosituinta alustaa Gartnerin tutkimuksen pohjalta (Q4/2013) \cite{marketshare}. Kolme mukaan otettua alustaa olivat Googlen Android, Applen iOS ja Microsoftin Windows Phone. Tämän jälkeen tehtävänä oli kartoittaa valituille alustoille tällä hetkellä olemassa olevia BDD:n mahdollistavia ratkaisuja. Löydettyjä ratkaisuja käydään läpi luvussa \ref{chap:platforms}.
+
+Olemassa olevien ratkaisuiden kartoittamisen myötä tutkielmassa tutkittiin onko mahdollisesti jo olemassa BDD-testikehyksiä, joilla voidaan testata kerralla useita eri alustoja. Samalla tutkittiin onko eri mobiilialustoille löydettävissä sellaisia BDD-testikehyksiä, joiden käyttämä luonnollinen kieli toimisi niin, että samoilla luonnollisella kielellä kirjoitetuilla testeillä voisi ainoastaan eri testikehysten kieltä jäsentävää ohjelmakoodia muokkaamalla saada samat testit toimimaan eri testikehyksillä.
+
+Tämän jälkeen tutkimuksessa käydään vielä läpi erikseen ratkaisu ongelmaan, kun kyseessä ovat natiivisovellusten sijaan HTML5-sovellukset, sillä näiden kohdalla testaus voidaan suorittaa eri tavalla. Tutkimuksessa kartoitetaan HTML5-sovellusten testaamista sekä käydään läpi ratkaisuja, joilla HTML5-sovelluksia voidaan paketoida helposti eri alustoja varten ja näin ollen saavuttaa samat edut BDD:llä kuin natiivisovellusten kohdalla. Tästä muodostetaan oma ratkaisunsa täydentämään natiivisovellusten testaukseen löytyneitä ratkaisuja.
+
+\chapter{Kirjallisuuskatsaus}
+
 \section{Aikaisemmat tutkimukset}
 Aikaisempaa tieteellistä tutkimusta Behaviour-driven developmentista on tehty verrattain vähän, sillä aihepiiri on niin tuore. Terminä BDD on tullut käyttöön ensimmäisiä kertoja vasta 2000-luvun puolivälissä erirtyisesti Dan Northin blogitekstien myötä \cite{bddintro}. Täten voidaan laskea BDD:n olevan käsitteenäkin vasta noin kymmenen vuoden ikäinen.
 
@@ -76,15 +86,6 @@ Hauilla löytyneet tutkimukset pystyi karkeasti jakamaan muutamaan eri luokkaan. 
 Sopivimmille artikkeleille tein lisähakuja käyttäen ``Backward search''-menetelmää \cite{tutkimuspaska}, jossa kävin läpi löytyneiden tutkimusten lähteitä. Tällä tavoin löytyi muutamia lähteitä, jotka esiintyivät hyvin monissa BDD:hen liittyvissä tutkimuksissa. Näitä olivat esimerkiksi Dan Northin tekstit \cite{bddintro}, Gojko Adzicin kirjat \cite{bridging},\cite{specification} sekä esimerkiksi Cucumber-kirja \cite{cucumber}. Samanlaisia tuloksia löytyi, kun kävin lähteille läpi vielä ``Backward search''-menetelmää, mutta tällä kertaa keskittyen kirjoittajiin, eli tutkin kirjoittajien muita teoksia.
 
 Näiden hakujen myötä päädyin käyttämään lähteinä erityisesti usein esilletulleita teoksia, kuten Adzicin kirjat, Cucumber-kirja sekä Dan Northin kirjoitukset. Tämän lisäksi mukaan valikoitui kirjoittaessa jatkuvasti uusia lähteitä, joita löytyi ennen kaikkea tekemällä ``Backward search''-hakuja aineistolle.
-
-\section{Tutkimusmenetelmistä}
-Tutkimus on toteutettu käyttäen konstruktiivista tutkimusotetta. Konstruktiivisessa tutkimusotteessa tavoitteena on rakentaa jonkinlainen artefakti, joka ratkaisee jonkin tietyn alan kysymyksen ja tätä kautta lisää tietoa ongelmasta ja sen ratkaisusta alalla \cite{constructive}. Tutkielmassani yritän löytää ratkaisua kysymykseen, voidaanko tämänhetkisten modernien mobiilialustojen ohjelmistoja testata tehokkaasti käyttäen Behaviour-driven developmentin toimintatapoja.
-
-Tutkimuskysymykseen vastatakseni tutkimuksessa kartoitetaan ensiksi millaisia BDD-työkaluja mobiilialustoille on nykyään saatavilla. Tutkimuksessani käytettävät alustat olen rajannut kattamaan kolme suosituinta alustaa Gartnerin tutkimuksen pohjalta (Q4/2013) \cite{marketshare}. Kolme mukaan otettua alustaa olivat Googlen Android, Applen iOS ja Microsoftin Windows Phone. Tämän jälkeen tehtävänä oli kartoittaa valituille alustoille tällä hetkellä olemassa olevia BDD:n mahdollistavia ratkaisuja. Löydettyjä ratkaisuja käydään läpi luvussa \ref{chap:platforms}.
-
-Olemassa olevien ratkaisuiden kartoittamisen myötä tutkielmassa tutkittiin onko mahdollisesti jo olemassa BDD-testikehyksiä, joilla voidaan testata kerralla useita eri alustoja. Samalla tutkittiin onko eri mobiilialustoille löydettävissä sellaisia BDD-testikehyksiä, joiden käyttämä luonnollinen kieli toimisi niin, että samoilla luonnollisella kielellä kirjoitetuilla testeillä voisi ainoastaan eri testikehysten kieltä jäsentävää ohjelmakoodia muokkaamalla saada samat testit toimimaan eri testikehyksillä.
-
-Tämän jälkeen tutkimuksessa käydään vielä läpi erikseen ratkaisu ongelmaan, kun kyseessä ovat natiivisovellusten sijaan HTML5-sovellukset, sillä näiden kohdalla testaus voidaan suorittaa eri tavalla. Tutkimuksessa kartoitetaan HTML5-sovellusten testaamista sekä käydään läpi ratkaisuja, joilla HTML5-sovelluksia voidaan paketoida helposti eri alustoja varten ja näin ollen saavuttaa samat edut BDD:llä kuin natiivisovellusten kohdalla. Tästä muodostetaan oma ratkaisunsa täydentämään natiivisovellusten testaukseen löytyneitä ratkaisuja.
 
 \chapter{Ketterä ohjelmistokehitys}
 
@@ -519,6 +520,7 @@ describe("Esimerkki", function() {
   });
 });
 \end{verbatim}
+Samalla tavoin kuin Cucumberiin, on myös Jasminessa tuki selainautomaatiolle, jonka avulla käyttäjien käyttäytymistä voidaan mallintaa testeihin.
 
 \subsection{Natiivisovellusten tuottaminen HTML5-sovelluksista}
 
