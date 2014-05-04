@@ -479,7 +479,7 @@ Kaikenkaikkiaan jokaiselle kolmelle tutkitulle mobiilialustalle löytyy Behaviou
 \section{HTML5-sovellukset}
 
 \subsection{HTML5-sovellusten BDD-testaaminen}
-
+\label{subsec:html5bdd}
 HTML5:llä tarkoitetaan nykypäivänä sekä HTML-merkintäkielen uusinta versiota \cite{html5} sekä myös siihen liittyviä moderneja teknologioita, joilla kehitetään web-sovelluksia \cite{html5revolution}. Näihin teknologioihin kuuluu esimerkiksi CSS-tyyliohjeiden uusin versio CSS3 \cite{css3}, joka tuo CSS-tyylitiedostoihin uusia ominaisuuksia, kuten esimerkiksi animaatioita, säilyttäen kuitenkin taaksepäin yhteensopivuuden vanhempien versioiden kanssa. CSS:n ohella moderneissa web-sovelluksissa tärkeässä osassa toimii JavaScript-ohjelmointikieli \cite{html5revolution} ja erityisesti JavaScriptillä toteutetut sovelluskehykset, joiden avulla saadaan entistä laajempia ja monimutkaisempia sovelluksia toimimaan web-pohjaisina ilman, että niitä tarvitsee kirjoittaa alusta alkaen kokonaan tyhjästä. Esimerkkejä näistä sovelluskehyksistä ovat esimerkiksi Node.js \cite{nodejs} ja Meteor \cite{meteor}. Sekä Node.js että Meteor ovat kummatkin JavaScript-ohjelmistokehyksiä, eli käytännössä kilpailevia tuotteita. Monesti projekteissa käytettävän sovelluskehyksen valinta onkin lähinnä kiinni kehitystiimin ja arkkitehtien mieltymyksistä ja tottumuksista, sillä lähes kaikki asiat voidaan eri sovelluskehyksillä toteuttaa, ja monesti erot sovelluskehysten välillä ovatkin lähinnä vain tavoissa, joilla niissä asiat tehdään. Esimerkiksi Meteorissa on panostettu erityisesti sovellusten reaktiivisuuteen, datan käsittelyyn asiakaspäässä ja pieniin latensseihin käyttäen mallien simulointia ja ennakkohakuja \cite{meteor}. Node.js-sovelluskehyksessä on vastaavasti sen sijaan panostettu ennen kaikkea skaalautuvuuteen ja skaalautuvien sovellusten kehittämiseen helposti. Kyseisessä kehyksessä ei esimerkiksi ole lainkaan prosesseja, jotka tekisivät suoraan luku- tai kirjoitusoperaatioita, jolloin kehittäjien ei tarvitse itse huolehtia mahdollisista estoista, joita nämä operaatiot aiheuttaisivat \cite{nodejs}.
 
 Merkittävää tällaisissa moderneissa web-sovelluksissa on se, että niiden käyttöliittymät voidaan toteuttaa siten, että ne toimivat oikein kaikenkokoisilla päätelaitteilla, eli responsiivisesti skaalautuvat oikein eri kokoisille näytöille. Lähivuosina erilaisten mobiililaitteiden, kuten erilaisten tablet-tietokoneiden ja älypuhelinten yleistymisen myötä web-sovellusten kehityksessäkin on alettu panostaa entistä enemmän mobiilialustojen toimivuuteen. Tällainen kehitystapa, jossa alusta asti sovellusta kehitetään responsiiviseksi ja toimimaan eri mobiilialustoilla, on nimeltään Mobile First -suunnittelu \cite{mobilefirst}.
@@ -558,7 +558,7 @@ Yksi ratkaisu tällaisten niin sanottujen hybridisovellusten tuottamiseen on Pho
 \caption{PhoneGapin toimintamalli \cite{phonegap}}
 \end{figure}
 
-Vuonna 2011 Adobe lahjoitti PhoneGapin lähdekoodit Apache Software Foundationille ja kyseinen projekti nimettiin Apache Cordovaksi \cite{cordova}. Tämän muutoksen myötä Cordova sisältää kaikki perusteknologiat, joiden päällä PhoneGap edelleen toimii \cite{cordovablog}. Muutoksen takana oli tahto pitää PhoneGapin kehitys avoimena, entistäkin läpinäkyvämpänä ja samalla helpottaa suurten organisaatioiden osallistumista PhoneGapin kehitykseen \cite{cordovablog}. Kuten sanottu, PhoneGap toimii edelleen Cordovaan pohjautuen ja sen voidaankin ajatella olevan yksi jakelu Cordovasta samalla tavalla kuin Linuxista on tarjolla erilaisia jakeluita eri sisällöillä. Jo nyt Adobe tarjoaakin PhoneGapin nimellä uusia palveluita, joita ei Cordova-projektissa ole. Yksi tällainen Adoben palvelu on PhoneGap Build \cite{phonegapbuild}, joka on pilvipalvelu, jossa kehittäjät voivat automaattisesti kääntää HTML5-sovelluksensa PhoneGap-sovelluksiksi. 
+Vuonna 2011 Adobe lahjoitti PhoneGapin lähdekoodit Apache Software Foundationille ja kyseinen projekti nimettiin Apache Cordovaksi \cite{cordova}. Tämän muutoksen myötä Cordova sisältää kaikki perusteknologiat, joiden päällä PhoneGap edelleen toimii \cite{cordovablog}. Muutoksen takana oli tahto pitää PhoneGapin kehitys avoimena, entistäkin läpinäkyvämpänä ja samalla helpottaa suurten organisaatioiden osallistumista PhoneGapin kehitykseen \cite{cordovablog}. Kuten sanottu, PhoneGap toimii edelleen Cordovaan pohjautuen ja sen voidaankin ajatella olevan yksi jakelu Cordovasta samalla tavalla kuin Linuxista on tarjolla erilaisia jakeluita eri sisällöillä. Jo nyt Adobe tarjoaakin PhoneGapin nimellä uusia palveluita, joita ei Cordova-projektissa ole. Yksi tällainen Adoben palvelu on PhoneGap Build \cite{phonegapbuild}, joka on pilvipalvelu, jossa kehittäjät voivat automaattisesti kääntää HTML5-sovelluksensa PhoneGap-sovelluksiksi.
 
 \chapter{Crossplatform-testaaminen eri mobiilialustoilla}
 \label{chap:platforms}
@@ -566,11 +566,38 @@ Vuonna 2011 Adobe lahjoitti PhoneGapin lähdekoodit Apache Software Foundationil
 \section{Mahdollisuudet testata kaikki alustat yhdellä testisetillä}
 
 \subsection{Samaa parseria käyttävien BDD-testikehysten käyttäminen}
+Kuten edellä aiemmissa kappaleissa selvisi, monet BDD-testikehyksistä hyödyntävät samaa parseria testitapausten parsimiseen tai vaihtoehtoisesti useat testikehykset pohjautuvat suoraan Cucumber-testikehykseen. Tämän myötä mobiilialustoilla on mahdollista testata natiivisovelluksia yhdellä testimäärityksellä. Tämä tarkoittaa siis sitä, että riittää määritellä yksi setti testiesimerkkien kuvauksia, eli halutut skenaariot. Tämän jälkeen eri testikehyksiä varten riittää ainoastaan kirjoittaa määritykset stepeille, joita eri skenaarioissa käytetään.
 
+Seuraavassa on koottu yhteen tutkielmassa käsiteltyjä BDD-testikehyksiä. Näistä testikehyksistä kaikki pohjautuvat Cucumberiin tai käyttävät Cucumberin Gherkin-parseria, eli niiden ymmärtämä kieli on kaikilla sama, jolloin voidaan nähdä, että tutkielmassa käsitellyille kolmelle käyttöjärjestelmälle löytyy BDD-testikehykset siten, että natiivisovelluksia voidaan testata käyttäen samaa testisettiä kaikilla eri alustoilla. Tutkielman kartoituksesta nähdään, että vaikka jokaiselle käyttöjärjestelmälle löytyy Gherkin-pohjainen ratkaisu, ei valinnanvaraa juurikaan ole, eli jos natiivia mobiilisovellusta halutaan testata samoilla testeillä eri mobiilialustoilla, on käytettävien testikehysten määrä varsin rajallinen.
+
+Android:
+\begin{itemize}
+\item Calabash
+\item Cucumber-Android
+\end{itemize}
+
+iOS:
+\begin{itemize}
+\item Calabash
+\item Frank
+\end{itemize}
+
+Windows Phone:
+\begin{itemize}
+\item WPTF
+\end{itemize}
+
+\newpage
 \subsection{HTML5}
+HTML5-sovellusten osalta jako voidaan tehdä vielä kahteen eri sovellustyyppiin, puhtaasti HTML5-sovelluksiin ja edellä käsiteltyihin hybridisovelluksiin, kuten esimerkiksi PhoneGapilla toteutetut sovellukset. Kummankin sovellustyypin kohdalla ratkaisu on hyvin samankaltainen ja pohjautuukin HTML5-sovelluksen testaamiseen esimerkiksi Cucumberilla tai Jasminella.
 
+Puhtaasti HTML5-sovellusten BDD-testaaminen eri alustoille on triviaalia, sillä tällaisissa sovelluksissa ei ole mitään toiminnallisia eroja eri alustojen välillä, jotka vaikuttaisivat testaamiseen. Tämän myötä sovellukset voidaan testata BDD-menetelmillä aivan kuten mitkä tahansa muutkin web-sovellukset. Tähän tarkoitukseen voidaan käyttää mitä tahansa soveltuvaa BDD-testikehystä, kuten monia tässä tutkielmassa käsitellyistä kehyksistä, esimerkiksi Cucumberia, Jasminea tai vaikkapa Robot Frameworkia \cite{robotframework}.
+
+Hybridisovellusten kohdalla prosessia tulee hieman muuttaa. Hybridisovellusten ollessa kyseessä BDD-testaus voidaan suorittaa jo ennen niiden paketointia PhoneGapilla tai Cordovalla käyttöjärjestelmäkohtaisiksi sovelluksiksi. Tämä kuitenkin tarkoittaa sitä, että näin ollen hybridisovellustenkin kohdalla testataan siis aivan tavallisia web-sovelluksia, jotka pohjautuvat HTML5-, JS ja CSS3-tekniikoihin. Tällaisten HTML5-sovellusten testaamisen teknologioita ja menetelmiä käsiteltiin edellä kappaleessa \ref{subsec:html5bdd}. 
 \chapter{Pohdintaa}
-
+Tässä osuudessa nostetaan esiin tutkielman tärkeimmät tulokset ja johtopäätökset sekä pohditaan mahdollisia jatkotutkimusaiheita tutkielman teemojen ympärillä.
+\section{Keskeiset tulokset}
+Tutkielmassa selvitettiin 
 \chapter{Yhteenveto}
 
 Tämän tutkielman tarkoituksena oli selvittää Behaviour-driven developmentin tarjoamia mahdollisuuksia mobiilisovellusten kehityksen tukemisessa. Tutkielmassa kartoitettiin tällä hetkellä olemassaolevia BDD-testikehyksiä ja selvitettiin mahdollisuuksia testata useita eri mobiilialustoja samoilla testeillä mahdollisimman helposti. Mobiilisovellusten osalta käytiin läpi niin HTML5-sovellukset, hybridisovellukset kuin myös natiivisovellukset. Kaikkien eri sovellustyyppien kohdalla selvitettiin keinoja kuinka niitä voidaan testata eri alustoilla jaetuilla testiseteillä ja minkälaisia vaatimuksia tällaisen testauksen onnistumiselle on.
@@ -820,6 +847,10 @@ APCHI '13 Proceedings of the 11th Asia Pacific Conference on Computer Human Inte
 \bibitem{phonegapbuild}
 \textit{Adobe PhoneGap Build}, saatavilla WWW-muodossa
 <URL: \texttt{https://build.phonegap.com/}>, viitattu 04.05.2014.
+
+\bibitem{robotframework}
+\textit{Robot Framework}, saatavilla WWW-muodossa
+<URL: \texttt{http://robotframework.org}>, viitattu 04.05.2014.
 
 \end{thebibliography}
 
