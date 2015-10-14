@@ -1,1 +1,1 @@
-My master's thesis, work in process
+My master's thesis, finished and graduated 2014.
